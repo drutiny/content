@@ -1,0 +1,12 @@
+title: Test Profile
+policies:
+  Test:Pass:
+    parameters:
+      custom_1: foo
+    severity: critical
+  Test:Fail:
+    severity: high
+  Test:Warning: {}
+  Test:NA: {}
+  Test:Error: {}
+  Test:Notice: {}

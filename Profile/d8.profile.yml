@@ -1,0 +1,27 @@
+title: Drupal 8 Site Audit
+policies:
+    Drupal-8:ConfigDevelDisabled: {}
+    Drupal-8:CronHasRun: {}
+    Drupal-8:CronLast: {}
+    Drupal-8:CssAggregation: {}
+    Drupal-8:DblogDisabled: {}
+    Drupal-8:DevelDisabled: {}
+    Drupal-8:DuplicateModules: {}
+    Drupal-8:ErrorLevel: {}
+    Drupal-8:Fast404Enabled: {}
+    Drupal-8:JsAggregation: {}
+    Drupal-8:KintDisabled: {}
+    Drupal-8:NoAutomatedCron: {}
+    Drupal-8:NoBackupAndMigrate: {}
+    Drupal-8:NoExperimental: {}
+    Drupal-8:PageCacheExpiry: {}
+    Drupal-8:PhpDisabled: {}
+    # Drupal-8:PurgeEnabled: {}
+    Drupal-8:ShieldDisabled: {}
+    Drupal-8:SimpleTestDisabled: {}
+    Drupal-8:StatisticsDisabled: {}
+    Drupal-8:UnusedModules: {}
+    Drupal-8:UpdateDisabled: {}
+    Drupal-8:User1LockDown: {}
+    Drupal-8:UserRegistrationAdminOnly: {}
+    Drupal-8:WebprofilerDisabled: {}

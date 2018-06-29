@@ -1,0 +1,13 @@
+title: 'Acquia Site Factory for Drupal 7'
+policies:
+    'Acquia:AgentEnabled': {  }
+    'Acquia:Connected': {  }
+    'Acquia:SPIEnabled': {  }
+    'Acquia:SiteFactory:Variables': {  }
+    'Acquia:ACSF': {  }
+    'Acquia:SiteFactory:Pingdom': {  }
+    'Acquia:SiteFactory:ThemeEnabled': {  }
+    'Acquia:CheckSiteFactoryWorkspace': {  }
+    'Acquia:SiteFactoryDuplication': {  }
+    'Acquia:SiteFactoryOpenID': {  }
+    'Acquia:SiteFactoryDefaultThemePath': {  }

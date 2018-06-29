@@ -1,0 +1,12 @@
+title: 'Drupal 7 Site Audit'
+policies:
+  Drupal-7:NoDuplicateModules: {}
+  Drupal-7:OverlayModuleDisabled: {}
+  Drupal-7:BlackListPermissions: {}
+  Drupal-7:PhpModuleDisabled: {}
+  Drupal-7:SimpletestModuleDisabled: {}
+  Drupal-7:StatisticsModuleDisabled: {}
+  Drupal-7:UpdateModuleDisabled: {}
+  Drupal-7:User1LockDown: {}
+  Drupal-7:XMLSitemapBaseURL: {}
+  Drupal-7:ZenRegistryRebuild: {}
