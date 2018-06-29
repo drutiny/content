@@ -1,0 +1,21 @@
+title: Views SQL Signature
+name: Drupal-7:ViewsSqlSignature
+class: \Drutiny\Plugin\Drupal7\Audit\VariableCompare
+tags:
+  - Drupal 7
+  - Performance
+description: |
+  Ensure that Views SQL queries contain a signature that will identify the view
+  the SQL query came from. Useful for database performance debugging.
+remediation: "Enable Views SQL signatures (views_sql_signature set to 1)."
+success: Views SQL Signature is enabled.
+failure: Views SQL Signature is not enabled.
+parameters:
+  key:
+    type: string
+    description: The name of the variable to check.
+    default: views_sql_signature
+  value:
+    type: bool
+    description: The value of the variable
+    default: 1

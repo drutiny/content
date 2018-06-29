@@ -1,0 +1,16 @@
+title: Secure Pages Enabled
+class: \Drutiny\Audit\Drupal\ModuleEnabled
+name: Drupal-7:SecurePagesEnabled
+tags:
+  - Drupal
+  - Best Practice
+description: |
+  Secure Pages module ensures requests are handled securely.
+remediation: "Enable the module: `drush en securepages -y`"
+success: The Secure Pages module is currently enabled.
+failure: The Secure Pages module is not currently enabled.
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is enabled.
+    default: securepages

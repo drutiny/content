@@ -1,0 +1,45 @@
+title: Drupal Theme Security
+class: Drutiny\Audit\Filesystem\CodeScan
+name: Drupal:ThemeSecurity
+tags:
+  - Best Practice
+  - Security
+description: |
+  Some basic checks to ensure that the theme is not doing any seriously bad
+  things. Note this is not supposed to be perfect, but used as an aid in
+  code review.
+remediation: |
+  Look to shift the functionality to a module, and get it out of the theme.
+success: No security issues found.
+failure: |
+  Security issues found ({{results.found}}):
+
+  Filepath | Line | Code
+  -------- | ---- | ----
+  {{#results.findings}}
+  {{basename}} | {{line}} | `{{code}}`
+  {{/results.findings}}
+parameters:
+  directory:
+    default: %root/%themes
+  filetypes:
+    default:
+      - php
+      - inc
+      - theme
+  patterns:
+    default:
+      - "_POST"
+      - "exec\\("
+      - "db_query"
+      - "db_select"
+      - "db_merge"
+      - "db_update"
+      - "db_write_record"
+      - "\\->query"
+      - "drupal_http_request"
+      - "curl_init"
+      - "passthru"
+      - "proc_open"
+      - "system\\("
+      - "sleep\\("

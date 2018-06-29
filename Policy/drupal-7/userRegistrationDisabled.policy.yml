@@ -1,0 +1,21 @@
+title: User Registration Disabled
+name: Drupal-7:UserRegistrationDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\VariableCompare
+tags:
+  - Drupal 7
+  - Performance
+description: |
+  Anonymous sites should have user registration set to off to prevent spam
+  registrations.
+remediation: Set the variable `user_register` to be `0`.
+success: User registration is restricted to administrators only.
+failure: User registration is enabled for visitors.
+parameters:
+  key:
+    type: string
+    description: The name of the variable to check.
+    default: user_register
+  value:
+    type: bool
+    description: The value of the variable
+    default: 0

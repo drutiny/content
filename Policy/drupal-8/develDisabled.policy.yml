@@ -1,0 +1,18 @@
+title: Devel module is not installed
+name: Drupal-8:DevelDisabled
+class: \Drutiny\Plugin\Drupal8\Audit\ModuleDisabled
+tags:
+  - Drupal 8
+  - Best Practice
+  - Security
+description: |
+  A suite of modules containing fun for module developers and themers. Not
+  recommended for production use.
+remediation: "Disable the module: `drush pm-uninstall devel -y`"
+success: The Devel module is not currently enabled.
+failure: The Devel module is currently enabled.
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: devel

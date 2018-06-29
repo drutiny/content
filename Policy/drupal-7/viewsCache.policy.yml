@@ -1,0 +1,16 @@
+title: Views Cache
+name: Drupal-7:ViewsCache
+class: \Drutiny\Plugin\Drupal7\Audit\ViewsCache
+tags:
+  - Drupal 7
+  - Performance
+description: |
+  Ensure views cache is enabled and configured
+remediation: |
+  Ensure some level of caching is in use.
+success: All views have caching enabled.
+failure: |
+  The following views do not have any form of caching
+    {{#views}}
+      - {{ . }}
+    {{/views}}

@@ -1,0 +1,16 @@
+title: "Acquia Purge Plugin Exists"
+class: \Drutiny\Plugin\Drupal8\Audit\PurgePluginExists
+name: Acquia:PurgePlugin
+description: |
+  Enabled purging of cached content on Acquia Cloud by adding it as a purge plugin.
+remediation: |
+  Add Acquia Purge as a plugin to Purge configuration. May require the Purge UI
+  module be enabled also.
+success: Acquia Purge plugin exists
+failure: Acquia Purge plugin has not been added to the purge module configuration.
+depends:
+  - Drupal-8:PurgeEnabled
+  - Acquia:PurgeEnabled
+parameters:
+  plugin:
+    default: acquia_purge

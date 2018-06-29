@@ -1,0 +1,12 @@
+title: "Acquia Cloud Site Factory Variables"
+class: \Drutiny\Audit\Drupal\ModuleEnabled
+name: Acquia:SiteFactory:Variables
+description: |
+  Ensure the Acquia Cloud Site Factory Variables module is enabled.
+remediation: |
+  Install and enable the Acquia Cloud Site Factory Variables module into your codebase.
+success: "Acquia Cloud Site Factory Variables module is enabled."
+failure: Acquia Cloud Site Factory Variables module is not enabled.
+parameters:
+  module:
+    default: acsf_variables

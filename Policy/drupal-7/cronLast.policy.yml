@@ -1,0 +1,11 @@
+title: "Cron running regularly"
+name: Drupal-7:CronLast
+class: \Drutiny\Plugin\Drupal7\Audit\CronLast
+tags:
+  - Drupal 7
+description: |
+  Making sure the cron jobs are running properly is key to a healthy Drupal site.
+remediation: |
+  Ensure a regular cron job is set to regularly run cron.
+success: Cron was last run {{cron_last}}
+failure: Cron was last run {{cron_last}}

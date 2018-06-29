@@ -1,0 +1,22 @@
+title: No Page Compression
+name: Drupal-7:NoPageCompression
+class: \Drutiny\Plugin\Drupal7\Audit\VariableCompare
+tags:
+  - Drupal 7
+  - Performance
+description: |
+  Drupal's Compress cached pages option (page_compression) can cause unexpected
+  behavior when an external cache such as Varnish is employed, and typically
+  provides no benefit. Therefore, Compress cached pages should be disabled
+remediation: Set the variable `page_compression` to `0`.
+success: Compression on cached pages is disabled.
+failure: Compression cached pages (page_compression) is enabled.
+parameters:
+  key:
+    type: string
+    description: The name of the variable to check.
+    default: page_compression
+  value:
+    type: bool
+    description: The value of the variable
+    default: 0

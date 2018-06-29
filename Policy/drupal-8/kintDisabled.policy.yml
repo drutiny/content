@@ -1,0 +1,21 @@
+title: Kint module is not installed
+name: Drupal-8:KintDisabled
+class: \Drutiny\Plugin\Drupal8\Audit\ModuleDisabled
+tags:
+  - Drupal 8
+  - Best Practice
+  - Security
+description: |
+  Kint for PHP is a tool designed to present your debugging data in the
+  absolutely best way possible.
+  In other words, it's var_dump() and debug_backtrace() on steroids.
+  Easy to use, but powerful and customizable. An essential addition to your
+  development toolbox. Should not be used in production.
+remediation: "Disable the module: `drush pm-uninstall kint -y`"
+success: The Kint module is not currently enabled.
+failure: The Kint module is currently enabled.
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: kint

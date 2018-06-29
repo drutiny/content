@@ -1,0 +1,15 @@
+title: No Administrators
+name: Drupal-7:NoAdmins
+class: \Drutiny\Plugin\Drupal7\Audit\NoAdministrators
+tags:
+  - Drupal 7
+description: |
+  Ensure there are no administrators beyond uid:1. This reduces the surface area
+  of escalated accounts being compromised.
+remediation: |
+  Remove the administrator role from the following users
+  {{# issues}}
+    - {{ . }}
+  {{/ issues}}
+success: No users detected with the administrator role
+failure: "{{count}} accounts detected with the administrator role."

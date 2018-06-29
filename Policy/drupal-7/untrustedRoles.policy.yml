@@ -1,0 +1,28 @@
+title: "Untrusted Roles with administrative permissions"
+name: Drupal-7:UntrustedRoles
+class: \Drutiny\Plugin\Drupal7\Audit\UntrustedRoles
+tags:
+  - Drupal 7
+  - Best Practice
+  - Security
+description: |
+  Make sure administrative permissions has not been assigned to untrusted roles.
+remediation: |
+  Remove the following permissions from the roles. Also, consider reassigning the
+  permissions to a new, trusted role or to an existing, trusted role.
+
+  Untrusted Role | Administrative Permission(s)
+      --- | ---
+      {{# rows }}
+        {{role}} | {{permissions}}
+      {{/ rows }}
+
+success: |
+  Untrusted roles do not have administrative permissions.
+
+failure: |
+  Administrative permissions are assigned to untrusted roles.
+
+parameters:
+  untrusted_roles:
+    default: ["anonymous user","authenticated user"]

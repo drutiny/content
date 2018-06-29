@@ -1,0 +1,24 @@
+title: "Less than 2,500 files per directory"
+class: Drutiny\Acquia\Audit\FilesPerDirectory
+name: Acquia:FilesPerDirectory
+description: |
+  On Acquia Cloud, we have found that over 2,500 files in a single directory
+  can seriously impact a server's performance and potentially its stability.
+remediation: |
+  The following documentation presents options and tools for organizing files
+  into subfolders:
+    * [proactively organizing files and subfolders](https://docs.acquia.com/articles/proactively-organizing-files-subfolders)
+
+success: No directories scanned contained more than 2,500 files.
+failure: |
+  The following directories are near or over the soft limit of 2,500 items
+  and should be considered for optimization:
+
+  Directory | Files Counted
+  -- | --
+  {{#directories}}
+  {{directory}} | {{file_count}}
+  {{/directories}}
+parameters:
+  limit:
+    default: 2500

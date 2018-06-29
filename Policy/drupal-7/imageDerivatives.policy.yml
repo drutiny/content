@@ -1,0 +1,28 @@
+title: Image Derivatives
+name: Drupal-7:ImageDerivatives
+class: \Drutiny\Plugin\Drupal7\Audit\VariableCompare
+tags:
+  - Drupal 7
+  - Performance
+description: |
+  Drupal core's Image module allows for the on-demand generation of image
+  derivatives. This capability can be abused by requesting a large number
+  of new derivatives which can fill up the server disk space, and which
+  can cause a very high CPU load. Either of these effects may lead to the
+  site becoming unavailable or unresponsive.
+remediation: Delete the variable `image_allow_insecure_derivatives`.
+success: Image derivative security is enabled
+failure: Image derivative security is not enabled.
+parameters:
+  key:
+    type: string
+    description: The name of the variable to check.
+    default: image_allow_insecure_derivatives
+  value:
+    type: bool
+    description: The value of the variable
+    default: 0
+  default:
+    type: bool
+    description: The default value of the variable
+    default: 0

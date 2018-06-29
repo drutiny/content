@@ -1,0 +1,19 @@
+title: Database logging disabled
+name: Drupal-7:DblogModuleDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
+tags:
+  - Drupal 7
+  - Best Practice
+  - Performance
+description: |
+  The database logging module logs Drupal's watchdog logs into the Drupal database.
+  This works fine in development but can cause performance issues for production
+  websites. Its recommended to disabled this module in production.
+remediation: "Disable the module: `drush pm-uninstall {{module}} -y`"
+success: Database logging is not currently enabled.
+failure: Database logging is currently enabled.
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is disabled.
+    default: dblog

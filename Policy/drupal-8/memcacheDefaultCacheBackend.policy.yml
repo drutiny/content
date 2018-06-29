@@ -1,0 +1,37 @@
+title: Memcache set as default cache backend
+class: \Drutiny\Plugin\Drupal8\Audit\SettingCompare
+name: Drupal-8:DefaultCacheMemcache
+tags:
+  - Performance
+description: |
+    Ensure the majority of your application caching is driven through Memcache
+    by setting it as the default backend (usually opposed to using the database).
+
+    Memcache is a better service for cache storage over the database as it
+    decouples cache performance from database load. This means slow queries will
+    not impact cache performance (beyond any shared resourcing between the services).
+
+remediation: |
+  Please ensure the memcache cache backend is set as the default cache backend.
+
+  ```
+  // If memcache servers are available, use them as the default cache backend.
+  if (isset($settings['memcache']['servers'])) {
+    $settings['cache']['default'] = 'cache.backend.memcache';
+  }
+  ```
+success: Memcache is the default cache backend.
+failure: Memcache is not set as the default cache backend.
+parameters:
+  key:
+    type: string
+    description: |
+      The key in settings.php to check. Use dot syntax to traverse settings array.
+    default: cache.default
+  value:
+    type: string
+    description: |
+      The value that should be set if the settings key exists.
+    default: cache.backend.memcache
+depends:
+  - Drupal-8:MemcacheEnabled

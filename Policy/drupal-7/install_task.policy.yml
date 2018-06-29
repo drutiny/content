@@ -1,0 +1,21 @@
+title: Installation Complete
+name: Drupal-7:InstallTaskCompleted
+class: \Drutiny\Plugin\Drupal7\Audit\VariableCompare
+tags:
+  - Drupal 7
+  - Performance
+description: |
+  If you fail to set this variable correctly, it can leave your `install.php`
+  script open to the general public.
+remediation: Set the variable `{{key}}` to be {{value}}.
+success: Installation complete. install.php is protected.
+failure: |
+  Installation is not complete. install.php is not protected. The
+  variable `{{key}}` is currently set to `{{reading}}`.
+parameters:
+  key:
+    description: The name of the variable to check.
+    default: install_task
+  value:
+    description: The value of the variable
+    default: done

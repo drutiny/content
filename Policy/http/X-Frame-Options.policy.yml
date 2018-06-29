@@ -1,0 +1,22 @@
+title: "HTTP X-Frame-Options"
+class: \Drutiny\Http\Audit\HttpHeaderExists
+name: HTTP:X-Frame-Options
+description: |
+  [X-Frame-Options](https://scotthelme.co.uk/hardening-your-http-response-headers/#x-frame-options)
+  tells the browser whether you want to allow your site to be framed or not. By
+  preventing a browser from framing your site you can defend against attacks
+  like clickjacking.
+remediation: |
+  There are number of methods to enable X-Frame-Options. The best option
+  will depend on what best suits your project implementation:
+    - Install the [Drupal seckit](https://www.drupal.org/project/seckit) module and enable X-Frame-Options.
+    - If you're using an edge CDN/WAF, consult your provider to see if they support X-Frame-Options.
+    - Manually manipulate your `.htaccess` file to the X-Frame-Options header.
+success: |
+  {{ header }} header set to `{{ header_value }}`.
+failure: |
+  {{ header }} is not present.
+  Ensure {{ header }} header is set. [Learn more about X-Frame-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options)
+parameters:
+  header:
+    default: X-Frame-Options

@@ -1,0 +1,21 @@
+title: "Secure Pages Config: Enabled"
+name: Drupal-7:SecurePagesConfig:Enabled
+class: \Drutiny\Plugin\Drupal7\Audit\VariableCompare
+tags:
+  - Drupal 7
+  - Secure Pages
+description: |
+  To start using secure pages this setting must be enabled. This setting will
+  only be able to changed when the web server has been configured for SSL.
+remediation: Ensure the web server supports SSL before enabling.
+success: Secure Pages is enabled
+failure: Secure Pages is not enabled.
+parameters:
+  key:
+    type: string
+    description: The name of the variable to check.
+    default: securepages_enable
+  value:
+    type: bool
+    description: The value of the variable
+    default: 1

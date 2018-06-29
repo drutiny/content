@@ -1,0 +1,12 @@
+title: "Acquia Cloud Site Factory Pingdom"
+class: \Drutiny\Audit\Drupal\ModuleEnabled
+name: Acquia:SiteFactory:Pingdom
+description: |
+  Ensure the Acquia Cloud Site Factory Pingdom module is enabled.
+remediation: |
+  Install and enable the Acquia Cloud Site Factory Pingdom module into your codebase.
+success: "Acquia Cloud Site Factory Pingdom module is enabled."
+failure: Acquia Cloud Site Factory Pingdom module is not enabled.
+parameters:
+  module:
+    default: acsf_pingdom

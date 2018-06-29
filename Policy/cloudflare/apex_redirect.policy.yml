@@ -1,0 +1,34 @@
+title: "Cloudflare redirect Apex to primary domain"
+class: \Drutiny\Cloudflare\Audit\PageRuleMatch
+name: cloudflare:redirect_apex
+description: |
+  If {{host}} is the primary site under the {{zone}} domain then you may want all
+  traffic to https://{{zone}}/ to be redirected to https://{{host}}/. This ensures
+  all traffic to both {{host}} and {{zone}} are routed through a common domain
+  and makes management of Cloudflare Page Rules easier to administer. This reduces
+  the likelihood of strange behaviour due to Page Rules.
+remediation: |
+  Add a page rule in Cloudflare with the matching pattern of `{{rule}}`.
+
+  For this rule, ensure a Forwarding URL setting is selected and forwards to
+  `{{settings.forwarding_url.url}}` with a status code of *{{settings.forwarding_url.status_code}}*
+success: |
+  There is a page rule for {{rule}} which forwards to {{settings.forwarding_url.url}}
+  with a status code of {{settings.forwarding_url.status_code}}.
+failure: |
+  {{#actions.forwarding_url}}
+    A Forwarding URL was found but incorrect. URL forwarded to
+    {{actions.forwarding_url.url}} with a status code of
+    {{actions.forwarding_url.status_code}}.
+  {{/actions.forwarding_url}}
+  {{^actions.forwarding_url}}
+    No such rule was found with an existing Forwarding URL.
+  {{/actions.forwarding_url}}
+parameters:
+  rule:
+    default: https://:zone/*
+  settings:
+    default:
+      forwarding_url:
+        url: https://:host/$1
+        status_code: 301

@@ -1,0 +1,26 @@
+title: 'Secure Pages: HTTP Redirect'
+class: \Drutiny\Plugin\Drupal7\Audit\VariableCompare
+name: Drupal-7:SecureHTTPRedirect
+tags:
+  - Drupal
+  - Best Practice
+description: |
+  Ensure secure pages module is configured to force redirect to HTTPS.
+remediation: |
+  Ensure the whitelisted pages are set to "*". `drush vset securepages_pages '*'`
+success: Secure Pages is configured to force redirect HTTPS.
+failure: Secure Pages is not configured to force redirect HTTPS.
+depends:
+  - Drupal-7:SecurePagesEnabled
+  - Drupal-7:SecurePagesConfig:Enabled
+  - Drupal-7:SecurePagesConfig:NoDowngrade
+  - Drupal-7:SecurePagesListed
+parameters:
+  key:
+    type: string
+    description: The name of the variable to check.
+    default: securepages_pages
+  value:
+    type: string
+    description: The value of the variable
+    default: '*'

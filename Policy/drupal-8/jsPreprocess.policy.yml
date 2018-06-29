@@ -1,0 +1,18 @@
+title: Javascript aggregation
+name: Drupal-8:JsAggregation
+class: \Drutiny\Plugin\Drupal8\Audit\ConfigCheck
+tags:
+  - Drupal 8
+  - Best Practice
+  - Performance
+description: With Javascript aggregation not installed your website visitors are experiencing slower page performance especially on slower networks.
+remediation: Set the configuration object `system.performance` key `js.preprocess` to be `TRUE`.
+success: Javascript aggregation is enabled.
+failure: Javascript aggregation is not enabled.
+parameters:
+  collection:
+    default: 'system.performance'
+  key:
+    default: 'js.preprocess'
+  value:
+    default: True

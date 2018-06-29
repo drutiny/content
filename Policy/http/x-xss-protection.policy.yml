@@ -1,0 +1,20 @@
+title: "HTTP X-XSS-Protection"
+class: \Drutiny\Http\Audit\HttpHeaderMatch
+name: HTTP:X-XSS-Protection
+description: |
+  [X-XSS-Protection](https://scotthelme.co.uk/hardening-your-http-response-headers/#x-xss-protection)
+  sets the configuration for the cross-site scripting filters built into most
+  browsers. The best configuration is `X-XSS-Protection: 1; mode=block`.
+remediation: |
+  There are number of methods to enable X-XSS-Protection. The best option
+  will depend on what best suits your project implementation:
+    - Install the [Drupal seckit](https://www.drupal.org/project/seckit) module and enable X-XSS-Protection.
+    - If you're using an edge CDN/WAF, consult your provider to see if they support X-XSS-Protection.
+    - Manually manipulate your `.htaccess` file to the X-XSS-Protection header.
+success: X-XSS-Protection header set to `1; mode=block`.
+failure: X-XSS-Protection is not present or incorrectly set.
+parameters:
+  header:
+    default: X-XSS-Protection
+  header_value:
+    default: 1; mode=block

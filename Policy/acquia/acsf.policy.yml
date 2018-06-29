@@ -1,0 +1,12 @@
+title: "Acquia Cloud Site Factory"
+class: \Drutiny\Audit\Drupal\ModuleEnabled
+name: Acquia:ACSF
+description: |
+  Ensure the Acquia Cloud Site Factory module is enabled.
+remediation: |
+  Install and enable the Acquia Cloud Site Factory module into your codebase.
+success: "Acquia Cloud Site Factory module is enabled."
+failure: Acquia Cloud Site Factory module is not enabled.
+parameters:
+  module:
+    default: acsf

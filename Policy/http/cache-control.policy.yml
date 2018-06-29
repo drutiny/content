@@ -1,0 +1,19 @@
+title: "HTTP Cache-Control"
+class: \Drutiny\Http\Audit\HttpHeaderRegex
+name: HTTP:Cache-Control
+description: |
+  Cache-Control header informs reverse proxies and browsers how to cache your
+  web page for performance reasons. A cacheable page should also contain the
+  max-age directive. E.g. `max-age=600; public`.
+remediation: |
+  Your site is choosing not to cache this page for some reason. Drupal sites
+  in general will cache unless page caching is not enabled or there is an element
+  on the page that prevents caching from taking place. We recommend you revise your
+  cache settings and elements in use on this page.
+success: Cache-Control header found with a max-age set.
+failure: Cache-Control header not found in response.
+parameters:
+  header:
+    default: Cache-Control
+  regex:
+    default: max-age=

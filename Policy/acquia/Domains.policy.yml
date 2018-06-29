@@ -1,0 +1,15 @@
+title: "Custom Domains Registered"
+class: \Drutiny\Acquia\Audit\CustomDomains
+name: Acquia:CustomDomains
+description: |
+  Ensure there is one or more custom domains registered with Acquia Cloud.
+remediation: |
+  Please ensure a domain is registered in Acquia Cloud. For more information,
+  please visit [Acquia Docs on domains](https://docs.acquia.com/cloud/configure/domains#name).
+success: |
+  Custom domains are registered
+  {{#domains}}
+  - [{{.}}](https://{{.}}/)
+  {{/domains}}
+failure: |
+  No custom domains were found registered to this environment.

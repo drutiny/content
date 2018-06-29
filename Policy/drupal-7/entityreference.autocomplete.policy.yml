@@ -1,0 +1,16 @@
+title: "EntityReference Autocomplete Performance"
+class: Drutiny\Plugin\Drupal7\Audit\EntityReferenceAutocomplete
+name: Drupal-7:entityreference
+tags:
+  - Performance
+description: |
+  Ensure that entity reference fields are configured correctly.
+remediation: |
+  Change the following field definitions to autocomplete as they are referencing
+  entities above the threshold (**{{threshold}}**)
+
+  {{#errors}}
+    - {{.}}
+  {{/errors}}
+success: Not issues detected with entity reference configuration.
+failure: Found configuration errors in {{errors_count}} entity references.

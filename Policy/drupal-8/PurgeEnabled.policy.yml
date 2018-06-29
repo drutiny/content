@@ -1,0 +1,15 @@
+title: Purge module enabled
+class: \Drutiny\Audit\Drupal\ModuleEnabled
+name: Drupal-8:PurgeEnabled
+tags:
+  - Performance
+description: |
+  Purge modules integrates other services into Drupal's caching strategy
+remediation: "Download and enable the module: `drush en purge -y`"
+success: The Purge module is currently enabled.
+failure: The Purge module is not currently enabled.
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is enabled.
+    default: purge

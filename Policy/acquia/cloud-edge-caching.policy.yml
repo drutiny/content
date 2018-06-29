@@ -1,0 +1,19 @@
+title: "Cloud Edge Caching"
+class: \Drutiny\Http\Audit\HttpHeaderMatch
+name: Acquia:CloudEdgeCaching
+description: |
+  When Cloudflare is successfully caching a page it will send out `CF-Cache-Status`
+  headers with caching information for the page requested. The value should be **HIT**
+remediation: |
+  Please review your Cloud Edge settings to ensure page caching is enabled. Also
+  check Drupal cache settings to ensure the page requested is cacheable.
+success: Acquia Cloud Edge returned with a HIT response.
+failure: |
+  Acquia Cloud Edge did not hit cache.
+depends:
+  - HTTP:Cache-Control
+parameters:
+  header:
+    default: cf-cache-status
+  header_value:
+    default: HIT

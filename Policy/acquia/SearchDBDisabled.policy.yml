@@ -1,0 +1,13 @@
+title: "No Database Search Indexes for Drupal 7"
+class: \Drutiny\Acquia\Audit\SearchDB
+name: Acquia:Drupal7:NoDbSearch
+description: |
+  By default Drupal can create full text search indexes in the database which
+  can lead to performance problems on large sites.
+remediation: |
+  Remove the search index from the database and replace with Acquia Solr Search
+success: "No database search index detected"
+failure: Site uses {{indexes}} database search index with {{items}} iterms indexed
+parameters:
+  module:
+    default: search_api_db

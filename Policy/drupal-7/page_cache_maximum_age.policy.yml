@@ -1,0 +1,23 @@
+title: Page Cache Control Max Age
+name: Drupal-7:PageCacheMaximumAge
+class: \Drutiny\Plugin\Drupal7\Audit\VariableCompare
+tags:
+  - Drupal 7
+  - Performance
+description: |
+  Ensure you page cache expiry is set to an optimal level for best performance.
+remediation: Set the variable `page_cache_maximum_age` to be greater than `300`.
+success: Page cache max-age is set above {{value}} seconds. Currently set to {{reading}}.
+failure: Page cache max-age is not set above {{value}} seconds. Currently set to {{reading}}.
+parameters:
+  key:
+    type: string
+    description: The name of the variable to check.
+    default: page_cache_maximum_age
+  value:
+    type: bool
+    description: The value of the variable
+    default: 300
+  comp_type:
+    type: string
+    default: gte

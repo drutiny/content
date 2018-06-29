@@ -1,0 +1,25 @@
+title: "#2819197 - Cloudflare workaround for Drupal 8 urlGenerator"
+class: \Drutiny\Cloudflare\Audit\PageRuleMatch
+name: cloudflare:drupal-urlGenerator-workaround
+description: |
+  By accessing a site an an unexpected base path (e.g. with index.php) a site may
+  cache links in a way that could be considered a minor site defacement and
+  possibly lead to a duplicate content SEO penalty too. It can also impact
+  caching strategy.
+remediation: |
+  Add a page rule in Cloudflare with the matching pattern of `{{rule}}`.
+
+  For this rule, ensure a Forwarding URL setting is selected and forwards to
+  `{{settings.forwarding_url.url}}` with a status code of `{{settings.forwarding_url.status_code}}`
+success: |
+  There is a page rule for {{rule}} which forwards to {{settings.forwarding_url.url}}
+  with a status code of {{settings.forwarding_url.status_code}}.
+failure: No forwarding for {{rule}} has been setup.
+parameters:
+  rule:
+    default: https://:host/index.php/*
+  settings:
+    default:
+      forwarding_url:
+        url: https://:host/$1
+        status_code: 301

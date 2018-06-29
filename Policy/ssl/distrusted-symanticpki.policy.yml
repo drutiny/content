@@ -1,0 +1,27 @@
+title: "Chrome distrusted Symantec PKI"
+class: \Drutiny\Http\Audit\SslAssertion
+name: SSL:DistrustedSymantecPKI
+severity: high
+description: |
+  At the end of July 2018, the Chrome team and PKI community plan to reduce, and
+  remove, trust in Symantec’s infrastructure in order to uphold users’ security
+  and privacy when browsing the web. SSL/TLS certificates from the Legacy
+  Symantec PKI issued after December 1, 2017 will no longer be trusted.
+
+remediation: |
+  You must renew the site certificate before the end of July to ensure your site
+  is not disrupted by this deprecation activity.
+
+success: You SSL certificate is not affectd by this deprecation.
+failure: |
+  A deprecated SSL certificate was found. Any vistors to your site using Google
+  Chrome (or variant) will not be able to view your site after July 2018.
+
+  Reference: https://security.googleblog.com/2018/03/distrust-of-symantec-pki-immediate.html
+
+  Your SSL certificate is issued by {{cert.issuer.O}} and was issue on {{cert.issued}}.
+parameters:
+  expression:
+    default: |
+      not (cert["issuer"]["O"] in ["DigiCert Inc", "thawte, Inc.", "GeoTrust Inc."]
+      and cert["validFrom_time_t"] < 1512039600)

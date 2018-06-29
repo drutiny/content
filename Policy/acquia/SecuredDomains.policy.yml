@@ -1,0 +1,31 @@
+title: "Secured Domains"
+class: \Drutiny\Acquia\Audit\SecureDomains
+name: Acquia:SecureDomains
+description: |
+  SSL enables your web application to use the HTTPS secure web protocol to
+  safely communicate with your users online. To use SSL, your environment must
+  have an SSL certificate, which you must purchase from a Certificate Authority
+  (CA) or SSL certificate vendor and upload to Acquia Cloud.
+remediation: |
+  Please review Acquia documentation on enabling SSL at https://docs.acquia.com/en/stable/acquia-cloud/manage/ssl/
+success: |
+  Domain | Secured | Certificate | Certificate Host
+  ------ | ------- | ----------- | ----------------
+  {{#domains}}
+  {{name}} | {{#secure}}✅{{/secure}}{{^secure}}❌{{/secure}} | {{certificate}} | {{host}}
+  {{/domains}}
+failure: |
+  There are no secured domains found.
+
+  Domain | Secured | Certificate | Certificate Host
+  ------ | ------- | ----------- | ----------------
+  {{#domains}}
+  {{name}} | {{#secure}}✅{{/secure}}{{^secure}}❌{{/secure}} | {{certificate}} | {{host}}
+  {{/domains}}
+warning: |
+  There are registered domains that do not contain SSL support directly on
+  Acquia Cloud. In some cases the SSL for these domains are offloaded prior to
+  the request reaching Acquia Cloud such as when **Acquia Cloud Edge** is in
+  use.
+
+  Enabling SSL - https://docs.acquia.com/en/stable/acquia-cloud/manage/ssl/

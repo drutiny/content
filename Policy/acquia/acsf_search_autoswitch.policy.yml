@@ -1,0 +1,15 @@
+title: "Acquia Search Auto Switch (D7)"
+class: \Drutiny\Plugin\Drupal7\Audit\VariableCompare
+name: Acquia:SiteFactory:SearchAutoSwitch
+description: |
+  Using Site Factory and Acquia Search, the auto core selector needs to be
+  disabled in order to work.
+remediation: |
+  Set the variable `acquia_search_disable_auto_switch` to be `1`.
+success: "Auto switch is disabled."
+failure: Auto switch is enabled.
+parameters:
+  key:
+    default: acquia_search_disable_auto_switch
+  value:
+    default: 1

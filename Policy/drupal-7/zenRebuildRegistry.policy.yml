@@ -1,0 +1,19 @@
+title: "Zen rebuild registry disabled"
+name: Drupal-7:ZenRegistryRebuild
+class: \Drutiny\Plugin\Drupal7\Audit\ZenRebuildRegistry
+tags:
+  - Drupal 7
+  - Best Practice
+  - Performance
+description: |
+  The rebuild registry feature is enabled for your theme. This setting is only
+  used during theme development, and can negatively impact site performance.
+remediation: |
+  To disable the rebuild theme registry feature, on your website, open the
+  Themes page at `/admin/appearance/settings/[THEMENAME]`, and then deselect
+  Rebuild theme registry for each enabled Zen-based theme. Also note that this
+  setting is often hardcoded in theme info file.
+success: No themes with zen_rebuild_registry enabled
+failure: |
+  There {prefix} `{number_of_themes}` theme{plural} ({themes}) with
+  zen_rebuild_registry enabled.

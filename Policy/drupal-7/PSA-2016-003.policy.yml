@@ -1,0 +1,18 @@
+title: "PSA-2016-003: Scan webform files for anon PDF uploads"
+name: Drupal-7:PSA-2016-003
+class: \Drutiny\Plugin\Drupal7\Audit\Security\WebformPSA_2016_003
+tags:
+  - Drupal 7
+  - Security
+description: |
+  This issue only affects sites that allow file uploads by non-trusted or
+  anonymous visitors, and stores those uploads in a public file system. For more
+  information, visit https://www.drupal.org/forum/newsletters/security-public-service-announcements/2016-10-10/drupal-file-upload-by-anonymous
+remediation: |
+  Restrict upload types, enforce a max upload size, use a random folder
+  underneath `/webform/` to store the uploads.
+success: |
+  There are no files uploaded that look malicious.
+failure: |
+  There {{prefix}} `{{number_of_silly_uploads}}` malicious webform upload{{plural}}.
+  {{files}}

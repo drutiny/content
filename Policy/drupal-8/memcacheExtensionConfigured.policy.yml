@@ -1,0 +1,33 @@
+title: Memcache extension set
+class: \Drutiny\Plugin\Drupal8\Audit\SettingCompare
+name: Drupal-8:MemcachedExtension
+tags:
+  - Performance
+description: |
+    In order for the memcache module to work, the php [memcache**d** extension](http://php.net/manual/en/book.memcached.php)
+    must be available on the runtime environment. In addition, Drupal must tell
+    the memcache module to use this extension (opposed to the memcache extension).
+
+remediation: |
+  Please ensure the memcached php extension is installed and the `settings.php`
+  file contains the following configuration:
+
+  ```
+  $settings['memcache']['extension'] = 'Memcached';
+  ```
+success: Memcached extension has been set in Drupal
+failure: |
+  The Memcached extension has either not been set or set to the wrong value.
+parameters:
+  key:
+    type: string
+    description: |
+      The key in settings.php to check. Use dot syntax to traverse settings array.
+    default: memcache.extension
+  value:
+    type: string
+    description: |
+      The value that should be set if the settings key exists.
+    default: Memcached
+depends:
+  - Drupal-8:MemcacheEnabled

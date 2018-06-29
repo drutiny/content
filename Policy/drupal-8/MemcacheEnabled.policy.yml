@@ -1,0 +1,22 @@
+title: Memcache module enabled
+class: \Drutiny\Audit\Drupal\ModuleEnabled
+name: Drupal-8:MemcacheEnabled
+tags:
+  - Performance
+description: |
+  This module provides integration between Drupal and Memcached with the following features:
+
+  * An API for using Memcached and the PECL Memcache or Memcached libraries with Drupal.
+  * Memcache backends for the following systems (all drop-in):
+  ** Caching
+  ** Locking
+  * A module that provides a comprehensive administrative overview of Drupal's interaction with Memcached and stats.
+
+remediation: "Download and enable the module: `composer require drupal/memcache`"
+success: The Memcache module is currently enabled.
+failure: The Memcache module is not currently enabled.
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is enabled.
+    default: memcache

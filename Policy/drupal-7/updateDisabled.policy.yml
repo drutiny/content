@@ -1,0 +1,17 @@
+title: Update
+name: Drupal-7:UpdateModuleDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
+tags:
+  - Drupal 7
+  - Performance
+description: |
+  The update module fetches the latest module information from Drupal.org and
+  reports on the module statuses used on the site.
+remediation: "Disable the module: `drush pm-uninstall update -y`"
+success: The Update module is not currently enabled.
+failure: The Update module is currently enabled.
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is disabled.
+    default: update

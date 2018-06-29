@@ -1,0 +1,12 @@
+title: "Acquia Connector"
+class: \Drutiny\Audit\Drupal\ModuleEnabled
+name: Acquia:Connected
+description: |
+  Ensure the Acquia Connector module is enabled.
+remediation: |
+  Install and enable the Acquia Connector module into your codebase.
+success: "Acquia Connector module is enabled."
+failure: Acquia Connector module is not enabled.
+parameters:
+  module:
+    default: acquia_connector

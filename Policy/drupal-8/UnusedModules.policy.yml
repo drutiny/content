@@ -1,0 +1,15 @@
+title: Unused modules in the codebase
+name: Drupal-8:UnusedModules
+class: \Drutiny\Plugin\Drupal8\Audit\UnusedModules
+tags:
+  - Drupal 8
+  - Best Practice
+description: |
+
+remediation: |
+  Remove listed modules from the codebase.
+  {{# unused_modules }}
+    - {{ . }}
+  {{/ unused_modules }}
+success: No unused modules found (excluding modules from in use projects.)
+failure: There are unused modules in the codebase. These should be removed.

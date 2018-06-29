@@ -1,0 +1,27 @@
+title: "XML sitemap base URL"
+name: Drupal-7:XMLSitemapBaseURL
+class: \Drutiny\Plugin\Drupal7\Audit\VariableCompare
+tags:
+  - Drupal 7
+  - Best Practice
+  - Security
+description: |
+  The XML sitemap module adds a sitemap on the URL `/sitemap.xml`.
+  If not properly configured, the sitemap will point to an incorrect or
+  possibly broken site.
+remediation: |
+  Set the variable `xmlsitemap_base_url` to be the production www URL. e.g.
+  `https://www.example.com`. Note there is no trailing slash.
+success: |
+  XML sitemap base URL is set correctly, currently `{{reading}}`.
+failure: |
+  XML sitemap base URL is not correct, currently it is `{{reading}}`.
+parameters:
+  key:
+    default: xmlsitemap_base_url
+  value:
+    default: "^https?://.+$"
+  comp_type:
+    default: regex
+  required_modules:
+    default: xmlsitemap

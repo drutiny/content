@@ -1,0 +1,24 @@
+title: User Enumeration
+class: Drutiny\Audit\Drupal\ModuleEnabled
+name: Drupal:Security:UserEmueration
+tags:
+  - Best Practice
+  - Security
+description: |
+  User enumeration is when a malicious actor can use brute-force to either guess
+  or confirm valid users in a system. User enumeration is often a web
+  application vulnerability, though it can also be found in any system that
+  requires user authentication. Two of the most common areas where user
+  enumeration occurs are in a site's login page and its ‘Forgot Password'
+  functionality.
+
+  User enumeration is a default vulnerability in Drupal but can be mitigated
+  through the use of the
+  [Username Enumeration Prevention](https://www.drupal.org/project/username_enumeration_prevention)
+  module.
+remediation: Enable the Username Enumeration Prevention module.
+success: The Username Enumeration Prevention module is enabled.
+failure: The Username Enumeration Prevention module is not enabled.
+parameters:
+  module:
+    default: username_enumeration_prevention

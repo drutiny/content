@@ -1,0 +1,23 @@
+title: "HTTP X-Content-Type-Options"
+class: \Drutiny\Http\Audit\HttpHeaderMatch
+name: HTTP:X-Content-Type-Options
+description: |
+  [X-Content-Type-Options](https://scotthelme.co.uk/hardening-your-http-response-headers/#x-content-type-options)
+  stops a browser from trying to MIME-sniff the content type and forces it to
+  stick with the declared content-type. The only valid value for this header is
+  `X-Content-Type-Options: nosniff`.
+remediation: |
+  There are number of methods to enable X-Content-Type-Options. The best option
+  will depend on what best suits your project implementation:
+    - Install the [Drupal seckit](https://www.drupal.org/project/seckit) module and enable X-Content-Type-Options.
+    - If you're using an edge CDN/WAF, consult your provider to see if they support X-Content-Type-Options.
+    - Manually manipulate your `.htaccess` file to the X-Content-Type-Options header.
+success: X-Content-Type-Options header set to `nosniff`.
+failure: |
+  X-Content-Type-Options is not present or incorrectly set.
+  Ensure X-Content-Type-Options header is set to `nosniff`
+parameters:
+  header:
+    default: X-Content-Type-Options
+  header_value:
+    default: nosniff

@@ -1,0 +1,19 @@
+title: Duplicate modules
+name: Drupal-7:NoDuplicateModules
+class: \Drutiny\Plugin\Drupal7\Audit\DuplicateModules
+tags:
+  - Drupal 7
+  - Sanity
+description: |
+  Duplicate modules can cause a variety of strange behaviors should Drupal ever
+  unexpectedly load the wrong version.
+remediation: |
+  Look to remove all duplicate modules, and standardise on a single copy in the
+  codebase.
+success: No duplicate modules found.
+failure: |
+  Duplicate modules found:
+
+  {{#modules}}
+    - {{module}} : {{count}}
+  {{/modules}}

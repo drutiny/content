@@ -1,0 +1,20 @@
+title: "Secure Pages Config: No Downgrade"
+name: Drupal-7:SecurePagesConfig:NoDowngrade
+class: \Drutiny\Plugin\Drupal7\Audit\VariableCompare
+tags:
+  - Drupal 7
+  - Secure Pages
+description: |
+  Secure pages shouldn't be configured to allow downgrade to HTTP.
+remediation: Ensure option to switch to http in Secure Pages config is not checked
+success: Secure Pages is enabled
+failure: Secure Pages is not enabled.
+parameters:
+  key:
+    type: string
+    description: The name of the variable to check.
+    default: securepages_switch
+  value:
+    type: bool
+    description: The value of the variable
+    default: 0

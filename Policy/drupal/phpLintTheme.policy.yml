@@ -1,0 +1,19 @@
+title: Lint PHP files in Theme
+class: Drutiny\Audit\Drupal\PhpLint
+name: Drupal:LintTheme
+tags:
+  - Best Practice
+description: |
+  Ensure all PHP files in the theme pass basic PHP syntax parsing.
+remediation: |
+  Fix syntax errors in the theme. This is required for PHP to correctly execute
+  these files.
+success: No PHP parse errors found in the theme.
+failure: |
+  The following errors were detected:
+    {{#errors}}
+      - `{{.}}`
+    {{/errors}}
+parameters:
+  path:
+    default: %root/%themes

@@ -1,0 +1,21 @@
+title: Views Pagination
+name: Drupal-7:ViewsPagination
+class: \Drutiny\Plugin\Drupal7\Audit\ViewsPagination
+tags:
+  - Drupal 7
+  - Performance
+description: |
+  Ensure views pagination is not over a threshold
+remediation: |
+  Ensure each view and associative display limit results to {{limit}} per page.
+success: No Views Pagination Violations found.
+failure: |
+  Change the following views pagination settings to below {{limit}}
+    {{#views}}
+      - {{ . }}
+    {{/views}}
+parameters:
+  limit:
+    type: integer
+    description: The maximum number of rows a view can list
+    default: 60

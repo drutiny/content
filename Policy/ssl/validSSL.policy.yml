@@ -1,0 +1,17 @@
+title: "HTTPS Valid SSL Certificate"
+class: \Drutiny\Http\Audit\HttpStatusCode
+name: HTTP:ValidSSL
+description: |
+  Ensure https requests over a valid SSL connection. This validates the SSL
+  certficiate and chain authority to ensure browsers will also be able to
+  trust this connection.
+remediation: |
+  Please acquire a valid SSL certificate and install it where {{domain}} resolves.
+
+success: SSL connection is active and valid.
+failure: |
+  SSL connection could not be established. This maybe due to an invalid
+  certificate.
+parameters:
+  force_ssl:
+    default: true

@@ -1,0 +1,23 @@
+title: Missing modules
+name: Drupal-7:MissingModules
+class: \Drutiny\Plugin\Drupal7\Audit\MissingModules
+tags:
+  - Drupal 7
+  - Best Practice
+description: |
+  The warning was introduced in Drupal 7.50 and is displayed when Drupal is
+  attempting to find a module or theme in the file system, but either cannot
+  find it or does not find it in the expected place.
+remediation: |
+  Put the modules back in the codebase.
+  *Warning* - many modules do important cleanup tasks during the uninstall
+  process, and this solution will result in that being skipped.
+  If at all possible, restore the missing module and uninstall it using the
+  regular uninstall process.
+success: No missing modules.
+failure: |
+  Missing modules were found:
+
+    {{# messages}}
+      - {{ . }}
+    {{/messages}}

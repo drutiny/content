@@ -1,0 +1,19 @@
+title: "Force HTTPS"
+class: \Drutiny\Http\Audit\HttpsRedirect
+name: HTTP:ForceHTTPS
+description: |
+  Ensure attempts to http redirect the user to an HTTPS URL. This ensures no
+  content is ever served over an insecure connection which is considered a best
+  practice.
+remediation: |
+  Please ensure all requests over http are redirected to **https**. There are
+  a number of ways this can be done:
+    - Enforce HTTPS redirecting at the edge (WAF or CDN) if applicable.
+    - Consider installing the Drupal secure pages module (Drupal 7 only)
+    - Consider an apache [.htaccess rewrite rule](https://www.millwoodonline.co.uk/quicktips/enforce-ssl-drupal-8-using-redirect)
+
+success: |
+  Redirect from [{{url}}]({{url}}) to [{{location}}]({{location}}) detected.
+failure: |
+  A request to [{{url}}]({{url}}) did not encounter a redirect to HTTPS. The expected
+  redirect should have been to [{{expected_location}}]({{expected_location}}).

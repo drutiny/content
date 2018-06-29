@@ -1,0 +1,21 @@
+title: Js Aggregation
+name: Drupal-7:JsAggregation
+class: \Drutiny\Plugin\Drupal7\Audit\VariableCompare
+tags:
+  - Drupal 7
+  - Performance
+description: |
+  With JS optimization disabled, your website visitors are experiencing slower
+  page performance and the server load is increased.
+remediation: "Set the variable `preprocess_js` to be `1`."
+success: Js aggregation is enabled.
+failure: Js aggregation is not enabled.
+parameters:
+  key:
+    type: string
+    description: The name of the variable to check.
+    default: preprocess_js
+  value:
+    type: bool
+    description: The value of the variable
+    default: 1

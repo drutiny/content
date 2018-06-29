@@ -1,0 +1,21 @@
+title: Drupal Theme Directory Size
+class: Drutiny\Audit\Filesystem\FsSize
+name: fs:DrupalThemeDirectory
+tags:
+  - Best Practice
+  - Performance
+description: |
+  Large theme directories can be indicative of best practice violations:
+    * Source files in site artifact. e.g. node_modules
+    * Media assets unsuitable for web delivery
+remediation: |
+  Review your theme directory and remove any uneeded source files or media and
+  ensure media is optimized for web delivery.
+success: Drupal theme directory size is under acceptable parameters.
+failure: |
+  The {{path}} directory is {{size}}MB in size.
+parameters:
+  max_size:
+    default: 50
+  path:
+    default: %root/%themes

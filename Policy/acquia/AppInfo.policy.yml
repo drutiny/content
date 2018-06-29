@@ -1,0 +1,13 @@
+title: "Acquia Application Information"
+class: \Drutiny\Acquia\Audit\AppInfo
+name: Acquia:AppInfo
+description: |
+  Application Information
+success: |
+  Name | {{app.name}}
+  ---- | ----------- |
+  Hosting | {{app.hosting.id}} ({{app.type}} on {{app.hosting.type}})
+  Subscription | {{app.subscription.name}}
+  Organization | {{app.organization.name}}
+failure: |
+  No application information found.

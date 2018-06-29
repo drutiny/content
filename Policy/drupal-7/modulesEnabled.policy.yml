@@ -1,0 +1,21 @@
+title: Modules enabled
+name: Drupal-7:ModulesEnabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModulesEnabled
+tags:
+  - Drupal 7
+description: "Check that a set of modules are enabled."
+remediation: "Enable the modules through the Drupal admin UI or drush en command."
+success: |
+  All modules are enabled: {{enabled}}.
+failure: |
+  The following modules are not enabled and should be:
+
+  {{#notEnabled}}
+    - `{{ . }}`
+  {{/notEnabled}}
+parameters:
+  modules:
+    type: array
+    description: The name of the modules to ensure is enabled.
+    default:
+      - syslog

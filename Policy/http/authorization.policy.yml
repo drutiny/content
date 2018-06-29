@@ -1,0 +1,20 @@
+title: "HTTP Authorization Disabled"
+class: \Drutiny\Http\Audit\HttpHeaderNotExists
+name: HTTP:Authorization
+description: |
+  The HTTP Authorization request header contains the credentials to authenticate
+  a user agent with a server, usually after the server has responded with a
+  401 Unauthorized status and the WWW-Authenticate header.
+
+  Authorization headers can bypass page caching strategies which can detrack
+  from performance.
+remediation: |
+  Ensure HTTP Authorization is removed before launch if it is not intended as a
+  permenant part of your solution. Also ensure load testing is not carried out
+  with HTTP Authorization in place as it may severly impact the results.
+
+success: HTTP Authorization is not in use.
+failure: HTTP Authorization is currently enforced.
+parameters:
+  header:
+    default: Authorization

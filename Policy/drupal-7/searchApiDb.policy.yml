@@ -1,0 +1,22 @@
+title: "Search API Database"
+name: Drupal-7:SearchApiDb
+class: \Drutiny\Plugin\Drupal7\Audit\SearchApiDb
+tags:
+  - Drupal 7
+  - Best Practice
+  - Performance
+description: |
+  Search backed with the database (and not Solr) can cause performance impacts to your site. Often the SQL queries caused but using the database are slow.
+remediation: "Disable `search_api_db` and then configure search to use Solr."
+success: |
+  Search is not using the database.
+warning: |
+  Search is using the database. Currently `{{nodes_in_search}}` nodes in `{{number_of_db_indexes}}` database index{{plural_index}}.
+failure: |
+  Search is using the database. Currently `{{nodes_in_search}}` nodes in `{{number_of_db_indexes}}` database index{{plural_index}}.
+parameters:
+  max_size:
+    default: 50
+    type: int
+    description: |
+      The maximum size of nodes in the index before it is considered an error.

@@ -1,0 +1,26 @@
+title: CSS Aggregation
+name: Drupal-7:SA-CORE-2013-003
+class: \Drutiny\Audit\Drupal\ModuleVersion
+tags:
+  - Drupal 7
+  - Security
+description: |
+  SA-CORE-2013-003 announed several vulnerabilities and is considered highly critical. The vulnerabilities are:
+    
+  * Multiple vulnerabilities due to optimistic cross-site request forgery protection (Form API validation): CVE-2013-6385
+  * Multiple vulnerabilities due to weakness in pseudorandom number generation using mt_rand() (Form API, OpenID and random password generation - Drupal 6 and 7): CVE-2013-6386
+  * Code execution prevention (Files directory .htaccess for Apache - Drupal 6 and 7): No CVE; considered remediated through "security hardening"
+  * Access bypass (Security token validation - Drupal 6 and 7): No CVE; considered remediated through "security hardening."
+  * Cross-site scripting (Image module - Drupal 7): CVE-2013-6387
+  * Cross-site scripting (Color module - Drupal 7): CVE-2013-6388
+  * Open redirect (Overlay module - Drupal 7): CVE-2013-6389
+
+  For more information, see [SA-CORE-2013-003](https://www.drupal.org/forum/newsletters/security-advisories-for-drupal-core/2013-11-20/sa-core-2013-003-drupal-core).
+remediation: Upgrade Drupal 7 to 7.24 or later.
+success: Drupal is secured from the vulnerabilities in SA-CORE-2013-003.
+failure: Drupal is current at version {{current_version}} and is not secured the vulnerabilities in SA-CORE-2013-003.
+parameters:
+  module:
+    default: system
+  version:
+    default: 7.24

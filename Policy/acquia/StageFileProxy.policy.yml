@@ -1,0 +1,26 @@
+title: "Serving files from production on development environments"
+class: \Drutiny\Audit\Drupal\ModuleEnabled
+name: Acquia:StageFileProxy
+description: |
+  Development and staging servers may have less disk space allocated to them
+  than a production server. When you are copying files from your production
+  server back to staging or development, you can quickly fill up your disk
+  space. It's possible to use the files on the production server for your
+  staging site without copying them by using [Stage File Proxy](https://drupal.org/project/stage_file_proxy)
+  module.
+
+  Using the Stage File Proxy module enables a development server to maintain a
+  clean files directory and use files from an alternate source by directly
+  referencing that alternate source. An additional option within the module
+  allows the file system on the development server to be seeded with files
+  from the production server.
+remediation: |
+  Install and configure the [Stage File Proxy](https://drupal.org/project/stage_file_proxy)
+  module into your codebase.
+
+  Read more about [Serving files from production on development environments](https://docs.acquia.com/article/serving-files-production-development-environments)
+success: Stage File Proxy module is enabled.
+failure: Stage File Proxy module is not enabled.
+parameters:
+  module:
+    default: stage_file_proxy

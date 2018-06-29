@@ -1,0 +1,23 @@
+title: Application Page Cache
+name: Drupal-7:CacheLifetime
+class: \Drutiny\Plugin\Drupal7\Audit\VariableCompare
+tags:
+  - Drupal 7
+  - Performance
+description: |
+  The minimum cache lifetime prevents Drupal from clearing page and block caches
+  after changes are made to nodes or blocks, for a set period of time. This can
+  cause unexpected behavior when editing content or when an external cache such
+  as a CDN or Varnish is employed.
+remediation: "Set the variable `cache_lifetime` to be `0`."
+success: Internal cache is disabled.
+failure: Internal cache is enabled. Currently set to {{reading}} seconds.
+parameters:
+  key:
+    type: string
+    description: The name of the variable to check.
+    default: cache_lifetime
+  value:
+    type: bool
+    description: The value of the variable
+    default: 0

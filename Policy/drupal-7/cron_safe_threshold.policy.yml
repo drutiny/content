@@ -1,0 +1,20 @@
+title: Poor Mans Cron Disabled
+name: Drupal-7:PoorMansCronDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\VariableCompare
+tags:
+  - Drupal 7
+  - Performance
+description: |
+  Checks that poor mans cron is disabled and will never run with a web thread.
+remediation: "Set the variable `cron_safe_threshold` to `0`"
+success: Poor mans cron is disabled.
+failure: Poor mans cron is still enabled, currently set to run every {{reading}} seconds.
+parameters:
+  key:
+    type: string
+    description: The name of the variable to check.
+    default: cron_safe_threshold
+  value:
+    type: bool
+    description: The value of the variable
+    default: 0

@@ -1,0 +1,24 @@
+title: "X-Drupal-Cache-Tags Header Disabled"
+class: \Drutiny\Http\Audit\HttpHeaderNotExists
+name: HTTP:X-Drupal-Cache-Tags
+description: |
+  X-Drupal-Cache-Tags is a debugging HTTP header Drupal sends to inform developers
+  what cache tags are being utilised in an HTTP response. The header can be high
+  verbosity on responses that use a lot of entities from both content and
+  configuration.
+
+  This header should only be used in local development or in environment specific
+  debugging.
+remediation: |
+  The X-Drupal-Cache-Tags header can be disabled by setting `http.response.debug_cacheability_headers`
+  to `false` in the `services.yml` file.
+
+  *References*
+  - (Drupal 8 API Cache Response Interface)[https://www.drupal.org/docs/8/api/responses/cacheableresponseinterface#debugging]
+  - (Disable Drupal 8 caching during development)[https://www.drupal.org/node/2598914]
+success: X-Drupal-Cache-Tags is not visible from the HTTP response.
+failure: X-Drupal-Cache-Tags is visible from the HTTP response.
+severity: high
+parameters:
+  header:
+    default: X-Drupal-Cache-Tags

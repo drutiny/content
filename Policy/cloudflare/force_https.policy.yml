@@ -1,0 +1,21 @@
+title: "Cloudflare always use HTTPS"
+class: \Drutiny\Cloudflare\Audit\PageRuleMatch
+name: cloudflare:always_use_https
+description: |
+  To ensure all traffic to {{host}} is secured over an SSL connection, Cloudflare
+  comes with a feature to force any insecure traffic to redirect to a secure
+  connection before a connection to the origin location is attempted. This ensures
+  all traffic to {{host}} is secured between the browser and Cloudflare.
+remediation: |
+  Add a page rule in Cloudflare with the matching pattern of `{{rule}}`.
+
+  For this rule, ensure the Always use HTTPS setting is enabled. Ensure this
+  rule is placed before any other rules that match the {{zone}} domain.
+success: "Always use HTTPS is enabled for the rule `{{rule}}`."
+failure: Always use HTTPS is not enabled for the rule `{{rule}}`.
+parameters:
+  rule:
+    default: http://:host/*
+  settings:
+    default:
+      always_use_https: true

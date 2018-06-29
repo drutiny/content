@@ -1,0 +1,15 @@
+title: "ACSF Deployment Workspace"
+class: \Drutiny\Acquia\Audit\AcsfDeployWorkspaceCleaned
+name: Acquia:CheckSiteFactoryWorkspace
+description: |
+  A bug in the ACSF deployment process left codebases in the `tmp` directory
+  which could lead to filesystem bloat and excessive inodes.
+remediation: |
+  Remove temporary workspace files. Directories older than 24 hours can be
+  safely removed.
+success: "No deployment workspaces found."
+failure: |
+  There are stable workspaces on the filesystem. These should be cleaned up
+    {{# directories}}
+      - {{ . }}
+    {{/directories}}

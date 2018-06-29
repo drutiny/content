@@ -1,0 +1,22 @@
+title: "Secure Pages Listed"
+name: Drupal-7:SecurePagesListed
+class: \Drutiny\Plugin\Drupal7\Audit\VariableCompare
+tags:
+  - Drupal 7
+  - Secure Pages
+description: |
+  Enusre Secure Pages is configured to secure a whitelist of pages.
+remediation: |
+  Enable whitelisting in secure pages configuration or use the following drush
+  command; `drush vset securepages_secure 1`.
+success: Secure Pages whitelisting enabled.
+failure: Secure Pages whitelisting is not enabled.
+parameters:
+  key:
+    type: string
+    description: The name of the variable to check.
+    default: securepages_secure
+  value:
+    type: bool
+    description: The value of the variable
+    default: 1

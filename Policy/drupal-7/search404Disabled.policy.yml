@@ -1,0 +1,17 @@
+title: Search404 module disabled
+name: Drupal-7:Search404ModuleDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
+tags:
+  - Drupal 7
+  - Performance
+description: |
+  The search 404 module conducts searches on 404 pages. This can have impacts to
+  performance and confuse search bots.
+remediation: "Disable the search404 module: `drush dis search404 -y`"
+success: The search404 module is not currently enabled.
+failure: The search404 module is currently enabled.
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is disabled.
+    default: search404
