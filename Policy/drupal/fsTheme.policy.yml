@@ -18,4 +18,4 @@ parameters:
   max_size:
     default: 50
   path:
-    default: %root/%themes
+    default: '%root/%themes'

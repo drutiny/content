@@ -16,4 +16,4 @@ failure: |
     {{/errors}}
 parameters:
   path:
-    default: %root/%themes
+    default: '%root/%themes'

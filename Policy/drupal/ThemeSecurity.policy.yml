@@ -21,7 +21,7 @@ failure: |
   {{/results.findings}}
 parameters:
   directory:
-    default: %root/%themes
+    default: "%root/%themes"
   filetypes:
     default:
       - php
