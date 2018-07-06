@@ -31,7 +31,7 @@ foreach ($finder as $file) {
     $failed[] = $file->getRealpath();
     continue;
   }
-  $payload['name'] = pathinfo($file->getRealpath(), PATHINFO_FILENAME);
+  $payload['name'] = str_replace('.profile.yml', '', basename($file->getRealpath()));
 
   if (!isset($payload['language'])) {
     $payload['language'] = 'en';
