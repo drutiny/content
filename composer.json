@@ -1,0 +1,14 @@
+{
+    "name": "drutiny/content",
+    "description": "Polcy and Profile YAML files for the Drutiny auditing ecosystem.",
+    "type": "library",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Josh Waihi",
+            "email": "josh.waihi@acquia.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
