@@ -2,6 +2,8 @@ language: php
 dist: trusty
 php:
 - '7.1'
+before_install:
+  - openssl aes-256-cbc -K $encrypted_f7eb167194e1_key -iv $encrypted_f7eb167194e1_iv -in build/id_rsa.enc -out build/id_rsa -d
 script:
 - travis_retry composer install --no-interaction
 deploy:

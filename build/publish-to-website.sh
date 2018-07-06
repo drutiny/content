@@ -10,10 +10,14 @@ if [ ! -d vendor/drutiny/website/.git ]; then
   exit 1;
 fi
 
+if [ ! -f build/id_rsa ]; then
+  echo "Cannot publish: ssh private key is not present. Please run script via Travis CI."
+  exit 1;
+fi
+
 # Install SSH key.
-openssl aes-256-cbc -K $encrypted_9472126ed793_key -iv $encrypted_9472126ed793_iv -in docs/ghp-id_rsa.enc -out ghp-id_rsa -d
-chmod 0400 ghp-id_rsa
-IDENTITY_FILE="`pwd`/ghp-id_rsa"
+chmod 0400 id_rsa
+IDENTITY_FILE="`pwd`/build/id_rsa"
 export GIT_SSH_COMMAND="ssh -i $IDENTITY_FILE"
 
 REF=`git log --pretty="%H" -1`
