@@ -10,5 +10,20 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {}
+    "require": {},
+    "require-dev": {
+        "symfony/yaml": "^4.1",
+        "symfony/finder": "^4.1",
+        "drutiny/website": "master-dev"
+    },
+    "repositories": [{
+        "type": "vcs",
+        "url": "https://github.com/drutiny/drutiny.github.io"
+    }],
+    "scripts": {
+      "post-install-cmd": [
+        "php build/profile.php",
+        "php build/policy.php"
+      ]
+    }
 }
