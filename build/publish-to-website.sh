@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -xe
 
 if [ ! -d vendor/drutiny/website ]; then
   echo "Cannot publish: Website is not installed. Run `composer install`."
