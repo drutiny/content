@@ -60,7 +60,7 @@ foreach ($finder as $file) {
     'class' => $payload['class'],
     '_links' => [
       'self' => [
-        'href' => str_replace(WEBSITE_DIRECTORY, '/', $filename),
+        'href' => str_replace(WEBSITE_DIRECTORY, '', $filename),
       ]
     ]
   ];

@@ -62,7 +62,7 @@ foreach ($finder as $file) {
     'policies' => array_keys($payload['policies']),
     '_links' => [
       'self' => [
-        'href' => str_replace(WEBSITE_DIRECTORY, '/', $filename),
+        'href' => str_replace(WEBSITE_DIRECTORY, '', $filename),
       ]
     ]
   ];
