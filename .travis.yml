@@ -1,0 +1,23 @@
+language: php
+dist: trusty
+php:
+- '7.1'
+script:
+- travis_retry composer install --no-interaction
+deploy:
+- provider: script
+  script: ./build/publish-to-website.sh
+  skip_cleanup: true
+  on:
+    branch: master
+    php: 7.1
+# - provider: script
+#   script: ./build/publish-to-website.sh
+#   skip_cleanup: true
+#   on:
+#     tags: true
+#     php: 7.1
+notifications:
+  email:
+    on_success: never
+    on_failure: always
