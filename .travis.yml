@@ -6,6 +6,8 @@ before_install:
 - openssl aes-256-cbc -K $encrypted_f7eb167194e1_key -iv $encrypted_f7eb167194e1_iv
   -in build/id_rsa.enc -out build/id_rsa -d
 - chmod 0400 build/id_rsa
+- IDENTITY_FILE="`pwd`/build/id_rsa"
+- export GIT_SSH_COMMAND="ssh -i $IDENTITY_FILE"
 script:
 - travis_retry composer install --no-interaction
 - travis_retry composer update drutiny/website --no-interaction

@@ -15,10 +15,6 @@ if [ ! -f build/id_rsa ]; then
   exit 1;
 fi
 
-# Install SSH key.
-IDENTITY_FILE="`pwd`/build/id_rsa"
-export GIT_SSH_COMMAND="ssh -i $IDENTITY_FILE"
-
 REF=`git log --pretty="%H" -1`
 
 pushd vendor/drutiny/website
