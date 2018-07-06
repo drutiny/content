@@ -16,7 +16,6 @@ if [ ! -f build/id_rsa ]; then
 fi
 
 # Install SSH key.
-chmod 0400 build/id_rsa
 IDENTITY_FILE="`pwd`/build/id_rsa"
 export GIT_SSH_COMMAND="ssh -i $IDENTITY_FILE"
 
