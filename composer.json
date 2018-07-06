@@ -21,7 +21,7 @@
         "url": "https://github.com/drutiny/drutiny.github.io"
     }],
     "scripts": {
-      "post-install-cmd": [
+      "build-api": [
         "php build/profile.php",
         "php build/policy.php"
       ]

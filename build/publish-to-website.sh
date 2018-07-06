@@ -32,4 +32,6 @@ if [ "$UPDATES" != "" ]; then
 	git add api/
 	git commit -m "Publishing revision $REF from drutiny/content."
 	git push
+
+  curl -XPOST -H'content-type:application/json' "https://packagist.org/api/update-package?username=fiasco&apiToken=$PACKAGIST_API_TOKEN" -d'{"repository":{"url":"https://github.com/drutiny/content"}}'
 fi
