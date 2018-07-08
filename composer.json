@@ -12,8 +12,8 @@
     "minimum-stability": "stable",
     "require": {},
     "require-dev": {
-        "symfony/yaml": "^4.1",
-        "symfony/finder": "^4.1",
+        "symfony/yaml": "^3.3",
+        "symfony/finder": "^3.3",
         "drutiny/website": "master-dev"
     },
     "repositories": [{
