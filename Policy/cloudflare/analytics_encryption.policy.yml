@@ -1,0 +1,66 @@
+title: "Cloudflare Encryption"
+class: Drutiny\Cloudflare\Audit\AnalyticsAnalysis
+name: cloudflare:encryption
+description: |
+  Cloudflare offers the ability to offload SSL traffic for your entire zone. These
+  graphs show the amount of traffic encrypted between Cloudflare are visitors.
+type: data
+failure: The analytics request failed.
+chart:
+  ssl_requests:
+    table-index: 0
+    type: doughnut
+    labels: tr td:first-child
+    hide-table: false
+    title: Traffic volume by communication channel
+    bootstrap-columns: 6
+    legend: none
+    series:
+      - tr td:nth-child(2)
+  ssl_bandwidth:
+    table-index: 0
+    type: doughnut
+    labels: tr td:first-child
+    hide-table: false
+    title: Traffic bandwidth by communication channel
+    bootstrap-columns: 6
+    legend: none
+    series:
+      - tr td:nth-child(3)
+  ssl_timeseries:
+    table-index: 1
+    type: line
+    stacked: true
+    labels: tr td:first-child
+    hide-table: true
+    title: Traffic encryption over time
+    legend: bottom
+    y-axis: Requests
+    series:
+      - tr td:nth-child(3)
+      - tr td:nth-child(4)
+    series-labels:
+      - tr th:nth-child(3)
+      - tr th:nth-child(4)
+
+success: |
+
+  {{{_chart.ssl_requests}}}
+
+  {{{_chart.ssl_bandwidth}}}
+
+  {{{_chart.ssl_timeseries}}}
+
+  Caching | Requests | Bandwidth (bytes)
+  ------- | -------- | ---------
+  Encrypted      | {{result.totals.requests.ssl.encrypted}}                    | {{result.totals.bandwidth.ssl.encrypted}}
+  Unencrypted    | {{result.totals.requests.ssl.unencrypted}}                  | {{result.totals.bandwidth.ssl.unencrypted}}
+
+  Since | Until | Encrypted | Unencrypted | Total
+  ----- | ----- | ------ | -------- | -----
+  {{#result.timeseries}}
+  {{since}} | {{until}} | {{requests.ssl.encrypted}} | {{requests.ssl.unencrypted}} | {{requests.allcached}}
+  {{/result.timeseries}}
+parameters:
+  expression:
+    default:  true

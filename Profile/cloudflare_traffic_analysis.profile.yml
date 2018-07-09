@@ -1,0 +1,28 @@
+title: 'Cloudflare Traffic Analysis'
+policies:
+    'cloudflare:caching':
+    'cloudflare:content':
+    'cloudflare:encryption':
+    'cloudflare:http_status':
+format:
+  html:
+    content:
+      - heading: Purpose
+        body: |
+          This report is designed to provide some feedback on the overall health
+          of the web application by performing some deep dive analysis. The
+          items surfaced in the report can help improve performance and
+          stability.
+      - heading: Reporting period
+        body: |
+          Period | Date time
+          ------ | ---------
+          Start | {{reporting_period_start}}
+          End | {{reporting_period_end}}
+      - heading: Origin Traffic Data
+        body: |
+          {{# notices }}
+            {{# output_notice }}
+              {{{.}}}
+            {{/ output_notice }}
+          {{/ notices }}

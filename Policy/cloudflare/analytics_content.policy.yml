@@ -1,0 +1,97 @@
+title: "Cloudflare Content"
+class: Drutiny\Cloudflare\Audit\AnalyticsAnalysis
+name: cloudflare:content
+description: |
+  The graphs below provide insight into the type of content requested for through
+  Cloudflare over the HTTP protocol (both encrypted or unencrypted).
+type: data
+failure: The analytics request failed.
+chart:
+  ssl_requests:
+    table-index: 0
+    type: doughnut
+    labels: tr td:first-child
+    hide-table: true
+    title: Traffic volume by content type
+    bootstrap-columns: 6
+    legend: none
+    series:
+      - tr td:nth-child(2)
+  ssl_bandwidth:
+    table-index: 0
+    type: doughnut
+    labels: tr td:first-child
+    hide-table: false
+    title: Traffic bandwidth by content type
+    bootstrap-columns: 6
+    legend: none
+    series:
+      - tr td:nth-child(3)
+  ssl_timeseries:
+    table-index: 1
+    type: line
+    stacked: true
+    labels: tr td:first-child
+    hide-table: true
+    title: Traffic by content type over time
+    legend: bottom
+    y-axis: Requests
+    series:
+      - tr td:nth-child(3)
+      - tr td:nth-child(4)
+      - tr td:nth-child(5)
+      - tr td:nth-child(6)
+      - tr td:nth-child(7)
+      - tr td:nth-child(8)
+      - tr td:nth-child(9)
+      - tr td:nth-child(10)
+      - tr td:nth-child(11)
+      - tr td:nth-child(12)
+      - tr td:nth-child(13)
+      - tr td:nth-child(14)
+    series-labels:
+      - tr th:nth-child(3)
+      - tr th:nth-child(4)
+      - tr th:nth-child(5)
+      - tr th:nth-child(6)
+      - tr th:nth-child(7)
+      - tr th:nth-child(8)
+      - tr th:nth-child(9)
+      - tr th:nth-child(10)
+      - tr th:nth-child(11)
+      - tr th:nth-child(12)
+      - tr th:nth-child(13)
+      - tr th:nth-child(14)
+
+success: |
+
+  {{{_chart.ssl_requests}}}
+
+  {{{_chart.ssl_bandwidth}}}
+
+  {{{_chart.ssl_timeseries}}}
+
+  Content Type | Requests | Bandwidth (bytes)
+  ------------ | -------- | ---------
+  empty      | {{result.totals.requests.content_type.empty}}          | {{result.totals.bandwidth.content_type.empty}}
+  gif        | {{result.totals.requests.content_type.gif}}            | {{result.totals.bandwidth.content_type.gif}}
+  html       | {{result.totals.requests.content_type.html}}           | {{result.totals.bandwidth.content_type.html}}
+  javascript | {{result.totals.requests.content_type.javascript}}     | {{result.totals.bandwidth.content_type.javascript}}
+  jpeg       | {{result.totals.requests.content_type.jpeg}}           | {{result.totals.bandwidth.content_type.jpeg}}
+  json       | {{result.totals.requests.content_type.json}}           | {{result.totals.bandwidth.content_type.json}}
+  octet-stream | {{result.totals.requests.content_type.octet-stream}} | {{result.totals.bandwidth.content_type.octet-stream}}
+  other      | {{result.totals.requests.content_type.other}}          | {{result.totals.bandwidth.content_type.other}}
+  plain      | {{result.totals.requests.content_type.plain}}          | {{result.totals.bandwidth.content_type.plain}}
+  png        | {{result.totals.requests.content_type.png}}            | {{result.totals.bandwidth.content_type.png}}
+  svg        | {{result.totals.requests.content_type.svg}}            | {{result.totals.bandwidth.content_type.svg}}
+  webp       | {{result.totals.requests.content_type.webp}}           | {{result.totals.bandwidth.content_type.webp}}
+  xml        | {{result.totals.requests.content_type.xml}}            | {{result.totals.bandwidth.content_type.xml}}
+
+  Since | Until | empty | gif | html | javascript | json | octet-stream | other | plain | png | svg | webp | xml
+  ----- | ----- | ----- | --- | ---- | ---------- | ---- | ------------ | ----- | ----- | --- | --- | ---- | ---
+  {{#result.timeseries}}
+  {{since}} | {{until}} | {{requests.content_type.empty}} | {{requests.content_type.gif}} | {{requests.content_type.html}} | {{requests.content_type.javascript}} | {{requests.content_type.json}} | {{requests.content_type.octet-stream}} | {{requests.content_type.other}} | {{requests.content_type.plain}} | {{requests.content_type.png}} | {{requests.content_type.svg}} | {{requests.content_type.webp}} | {{requests.content_type.xml}}
+  {{/result.timeseries}}
+parameters:
+  expression:
+    default:  true

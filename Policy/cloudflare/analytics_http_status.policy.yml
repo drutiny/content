@@ -1,0 +1,92 @@
+title: "Cloudflare HTTP Status Codes"
+class: Drutiny\Cloudflare\Audit\AnalyticsAnalysis
+name: cloudflare:http_status
+description: |
+  The graphs below provide insight into the traffic levels by HTTP status codes.
+type: data
+failure: The analytics request failed.
+chart:
+  requests:
+    table-index: 0
+    type: doughnut
+    labels: tr td:first-child
+    hide-table: true
+    title: Traffic volume by status code
+    bootstrap-columns: 6
+    legend: none
+    series:
+      - tr td:nth-child(2)
+  timeseries:
+    table-index: 1
+    type: line
+    stacked: true
+    labels: tr td:first-child
+    hide-table: true
+    title: Traffic by status code over time
+    legend: bottom
+    y-axis: Requests
+    series:
+      - tr td:nth-child(3)
+      - tr td:nth-child(4)
+      - tr td:nth-child(5)
+      - tr td:nth-child(6)
+      - tr td:nth-child(7)
+      - tr td:nth-child(8)
+      - tr td:nth-child(9)
+      - tr td:nth-child(10)
+      - tr td:nth-child(11)
+      - tr td:nth-child(12)
+      - tr td:nth-child(13)
+      - tr td:nth-child(14)
+      - tr td:nth-child(15)
+      - tr td:nth-child(16)
+    series-labels:
+      - tr th:nth-child(3)
+      - tr th:nth-child(4)
+      - tr th:nth-child(5)
+      - tr th:nth-child(6)
+      - tr th:nth-child(7)
+      - tr th:nth-child(8)
+      - tr th:nth-child(9)
+      - tr th:nth-child(10)
+      - tr th:nth-child(11)
+      - tr th:nth-child(12)
+      - tr th:nth-child(13)
+      - tr th:nth-child(14)
+      - tr th:nth-child(15)
+      - tr th:nth-child(16)
+
+success: |
+
+  {{{_chart.requests}}}
+
+  {{{_chart.bandwidth}}}
+
+  {{{_chart.timeseries}}}
+
+  Status Code | Requests
+  ------------ | --------
+  200 | {{result.totals.requests.http_status.200}}
+  206 | {{result.totals.requests.http_status.206}}
+  301 | {{result.totals.requests.http_status.301}}
+  302 | {{result.totals.requests.http_status.302}}
+  304 | {{result.totals.requests.http_status.304}}
+  400 | {{result.totals.requests.http_status.400}}
+  403 | {{result.totals.requests.http_status.403}}
+  404 | {{result.totals.requests.http_status.404}}
+  416 | {{result.totals.requests.http_status.416}}
+  499 | {{result.totals.requests.http_status.499}}
+  500 | {{result.totals.requests.http_status.500}}
+  503 | {{result.totals.requests.http_status.503}}
+  504 | {{result.totals.requests.http_status.504}}
+  522 | {{result.totals.requests.http_status.522}}
+  523 | {{result.totals.requests.http_status.523}}
+
+  Since | Until | 200 | 206 | 301 | 302 | 400 | 403 | 404 | 416 | 499 | 500 | 503 | 504 | 522 | 523
+  ----- | ----- | --- | --- | --- | --- | --- | --- | ----| --- | --- | --- | --- | --- | --- | ---
+  {{#result.timeseries}}
+  {{since}} | {{until}} | {{requests.http_status.empty}} | {{requests.http_status.206}} | {{requests.http_status.301}} | {{requests.http_status.302}} | {{requests.http_status.400}} | {{requests.http_status.403}} | {{requests.http_status.404}} | {{requests.http_status.416}} | {{requests.http_status.499}} | {{requests.http_status.500}} | {{requests.http_status.503}} | {{requests.http_status.504}} | {{requests.http_status.522}} | {{requests.http_status.523}}
+  {{/result.timeseries}}
+parameters:
+  expression:
+    default:  true

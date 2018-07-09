@@ -1,0 +1,68 @@
+title: "Cloudflare Caching"
+class: Drutiny\Cloudflare\Audit\AnalyticsAnalysis
+name: cloudflare:caching
+description: |
+  Cloudflare CDN caches your website at different [PoP](https://www.cloudflare.com/learning/cdn/glossary/data-center/)s
+  in closer geographic proximity to your visitors than your website is. These
+  graphs show the amount of traffic handled by Cloudflare's CDN caching globally,
+  offloading traffic from your origin web property.
+type: data
+failure: The analytics request failed.
+chart:
+  cached_requests:
+    table-index: 0
+    type: doughnut
+    labels: tr td:first-child
+    hide-table: false
+    title: Traffic volume by cachability
+    bootstrap-columns: 6
+    legend: none
+    series:
+      - tr td:nth-child(2)
+  cached_bandwidth:
+    table-index: 0
+    type: doughnut
+    labels: tr td:first-child
+    hide-table: false
+    title: Traffic bandwidth by cachability
+    bootstrap-columns: 6
+    legend: none
+    series:
+      - tr td:nth-child(3)
+  cached_timeseries:
+    table-index: 1
+    type: line
+    stacked: true
+    labels: tr td:first-child
+    hide-table: true
+    title: Traffic cachability over time
+    legend: bottom
+    y-axis: Requests
+    series:
+      - tr td:nth-child(3)
+      - tr td:nth-child(4)
+    series-labels:
+      - tr th:nth-child(3)
+      - tr th:nth-child(4)
+
+success: |
+
+  {{{_chart.cached_requests}}}
+
+  {{{_chart.cached_bandwidth}}}
+
+  {{{_chart.cached_timeseries}}}
+
+  Caching | Requests | Bandwidth (bytes)
+  ------- | -------- | ---------
+  Cached      | {{result.totals.requests.cached}}                    | {{result.totals.bandwidth.cached}}
+  Uncached    | {{result.totals.requests.uncached}}                  | {{result.totals.bandwidth.uncached}}
+
+  Since | Until | Cached | Uncached | Total
+  ----- | ----- | ------ | -------- | -----
+  {{#result.timeseries}}
+  {{since}} | {{until}} | {{requests.cached}} | {{requests.uncached}} | {{requests.allcached}}
+  {{/result.timeseries}}
+parameters:
+  expression:
+    default:  true
