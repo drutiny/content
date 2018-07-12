@@ -1,0 +1,34 @@
+title: "Cloudflare Threat Management"
+class: Drutiny\Cloudflare\Audit\AnalyticsAnalysis
+name: cloudflare:threats
+description: |
+  Threats are requests Cloudflare identifies as malicious and blocks according
+  to the configuration of the WAF. For more information on the types of threats
+  see the [knowledge base article on threat types](https://support.cloudflare.com/hc/en-us/articles/204191238-What-are-the-types-of-Threats-).
+type: data
+failure: The analytics request failed.
+chart:
+  timeseries:
+    type: line
+    stacked: true
+    labels: tr td:first-child()
+    hide-table: false
+    title: Threats over time
+    legend: bottom
+    y-axis: Threats
+    series:
+      - tr td:nth-child(3)
+    series-labels:
+      - tr th:nth-child(3)
+
+success: |
+  {{{_chart.timeseries}}}
+
+  Since | Until | Threats
+  ----- | ----- | -------
+  {{#result.timeseries}}
+  {{since}} | {{until}} | {{threats.all}}
+  {{/result.timeseries}}
+parameters:
+  expression:
+    default:  true
