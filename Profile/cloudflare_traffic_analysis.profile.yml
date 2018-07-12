@@ -1,5 +1,6 @@
 title: 'Cloudflare Traffic Analysis'
 policies:
+    'cloudflare:threats':
     'cloudflare:caching':
     'cloudflare:content':
     'cloudflare:encryption':
