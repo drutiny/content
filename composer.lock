@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2b9c25f481bddf666052613d4f3d8a0",
+    "content-hash": "c4907697167e56107738c015755659a1",
     "packages": [],
     "packages-dev": [
         {
@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/drutiny/drutiny.github.io.git",
-                "reference": "7f2984cd52f1ad82e6cbcb4388eda2bf552d97b2"
+                "reference": "c77f8f6f4bba97a5003490aabaeff84ff3d76043"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drutiny/drutiny.github.io/zipball/7f2984cd52f1ad82e6cbcb4388eda2bf552d97b2",
-                "reference": "7f2984cd52f1ad82e6cbcb4388eda2bf552d97b2",
+                "url": "https://api.github.com/repos/drutiny/drutiny.github.io/zipball/c77f8f6f4bba97a5003490aabaeff84ff3d76043",
+                "reference": "c77f8f6f4bba97a5003490aabaeff84ff3d76043",
                 "shasum": ""
             },
             "type": "website",
@@ -35,11 +35,53 @@
             "support": {
                 "source": "https://github.com/drutiny/drutiny.github.io/tree/master"
             },
-            "time": "2018-07-06T11:21:58+00:00"
+            "time": "2018-07-25T02:50:57+00:00"
+        },
+        {
+            "name": "romaricdrigon/metayaml",
+            "version": "1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/romaricdrigon/MetaYaml.git",
+                "reference": "03b0af567981a8a060606989c395974baf385bd1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/romaricdrigon/MetaYaml/zipball/03b0af567981a8a060606989c395974baf385bd1",
+                "reference": "03b0af567981a8a060606989c395974baf385bd1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/yaml": "~2.3|~3.0"
+            },
+            "require-dev": {
+                "atoum/atoum": "~1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "RomaricDrigon\\MetaYaml": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Using [Yaml|Xml|json] schemas files to validate [Yaml|Xml|json] ",
+            "homepage": "http://github.com/romaricdrigon/MetaYaml",
+            "keywords": [
+                "json",
+                "schema",
+                "validation",
+                "xml",
+                "yaml"
+            ],
+            "time": "2016-02-29T10:28:30+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.12",
+            "version": "v3.4.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -143,7 +185,7 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.4.12",
+            "version": "v3.4.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
