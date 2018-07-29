@@ -19,6 +19,6 @@ parameters:
     description: The name of the variable to check.
     default: error_level
   value:
-    type: bool
+    type: boolean
     description: The value of the variable
     default: 0

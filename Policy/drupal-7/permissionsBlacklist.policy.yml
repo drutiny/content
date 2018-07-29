@@ -15,8 +15,7 @@ failure: |
       * {{ . }}
     {{/ perms }}
   {{/ roles }}
-
-exception: Could not determine use of blackisted roles.
+  
 parameters:
   permissions:
     type: array

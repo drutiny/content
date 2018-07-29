@@ -12,4 +12,3 @@ remediation: |
   Required database updates should be applied by running `drush updatedb`.
 success: No database updates required.
 failure: There are pending updates to be run.
-exception: Could not determine status for the database for update.

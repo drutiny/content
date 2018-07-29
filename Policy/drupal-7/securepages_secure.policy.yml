@@ -17,6 +17,6 @@ parameters:
     description: The name of the variable to check.
     default: securepages_secure
   value:
-    type: bool
+    type: boolean
     description: The value of the variable
     default: 1

@@ -19,10 +19,10 @@ parameters:
     description: The name of the variable to check.
     default: image_allow_insecure_derivatives
   value:
-    type: bool
+    type: boolean
     description: The value of the variable
     default: 0
   default:
-    type: bool
+    type: boolean
     description: The default value of the variable
     default: 0

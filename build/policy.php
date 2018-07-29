@@ -3,9 +3,12 @@
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Yaml\Exception\ParseException;
+use RomaricDrigon\MetaYaml\MetaYaml;
+use RomaricDrigon\MetaYaml\Exception\NodeValidatorException;
 
 const WEBSITE_DIRECTORY = 'vendor/drutiny/website';
 const API_DIRECTORY = WEBSITE_DIRECTORY . '/api/v2';
+const POLICY_SCHEMA = 'https://raw.githubusercontent.com/drutiny/drutiny/2.3.x/src/policy.schema.yml';
 
 if (!is_dir(WEBSITE_DIRECTORY)) {
   echo "ERROR: Website directory has not installed correctly. Please run composer install.\n";
@@ -22,9 +25,18 @@ $finder->in('Policy')
 $list = [];
 $failed = [];
 
+$schema = file_get_contents(POLICY_SCHEMA);
+$schema = new MetaYaml(Yaml::parse($schema));
+
 foreach ($finder as $file) {
   try {
     $payload = Yaml::parseFile($file->getRealpath());
+    $schema->validate($payload);
+  }
+  catch (NodeValidatorException $e) {
+    echo $file->getRealpath() . ': ' . $e->getMessage() . PHP_EOL;
+    $failed[] = $file->getRealpath();
+    continue;
   }
   catch (ParseException $e) {
     echo $file->getRealpath() . ': ' . $e->getMessage() . PHP_EOL;
@@ -74,6 +86,6 @@ foreach ($list as $lang => $policy_list) {
 
 if (count($failed)) {
   echo "\n\n" . count($failed) . " policy files failed to process:\n";
-  echo "-" . implode("\n-", $failed) . "\n";
+  echo "- " . implode("\n- ", $failed) . "\n";
   exit(1);
 }
