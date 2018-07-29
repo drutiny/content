@@ -12,14 +12,24 @@ remediation: |
 success: There are no anonymous sessions.
 failure: |
   Anonymous sessions were detected in the sessions table. Found {{count}} sessions.
+
+  Session data is verbose and cryptic in nature and as such, the full extent of
+  the session data cannot be shown in this report. Below is an extract of session
+  data stored in the first record found:
+
+  ```
+  {{first_row.session}}
+  ```
+
+  The most recent anonymous session was recorded at {{first_row.date}} UTC.
 parameters:
-  field:
-    default: count
-  value:
-    default: 0
+  expression:
+    default: count == 0
   query:
     default: |
-      SELECT COUNT(*) as count FROM sessions
+      SELECT session, FROM_UNIXTIME(timestamp) as date FROM sessions
       WHERE uid = 0
         AND session NOT LIKE 'openid%'
         AND session NOT LIKE '%Access denied%'
+      ORDER BY timestamp DESC
+      LIMIT 1000

@@ -1,0 +1,27 @@
+title: "Database fulltext indexing"
+class: Drutiny\Audit\Drupal\SqlResultAudit
+name: Database:Fulltext
+tags:
+  - Drupal 7
+  - Drupal 8
+  - Performance
+description: |
+  Tables with FULLTEXT indexes cannot currently be converted to InnoDB (a solution for this is in development for MySQL 5.6).
+  Queries involving these tables with FULLTEXT indexing could lead to performance problems.
+remediation: |
+  Please review the tables below with FULLTEXT indexes to determine if they can be converted to InnoDB FULLTEXT indexing.
+   {{#results}}
+    - `{{table_name}}`
+   {{/results}}
+success: |
+  No tables with FULLTEXT indexes were found.
+failure: |
+  Tables with FULLTEXT indexes were found.
+parameters:
+  query:
+    default: |
+      SELECT DISTINCT table_name FROM information_schema.statistics
+      WHERE index_type = 'FULLTEXT'
+      AND table_schema = ':db-name'
+  expression:
+    default: count == 0
