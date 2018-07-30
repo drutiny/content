@@ -1,0 +1,18 @@
+title: Shield module is not installed
+name: Drupal-8:ShieldDisabled
+class: \Drutiny\Plugin\Drupal8\Audit\ModuleDisabled
+tags:
+  - Drupal 8
+  - Best Practice
+  - Performance
+description: |
+  The shield module protects Drupal sites from prying eyes, often it is used to
+  protect sites that are not yet live, but should never be enabled for live sites.
+remediation: |
+  Disable shield through the shield user interface, set the config
+  `shield.settings:user` to '' (blank), or uninstall the shield module.
+success: Shield is not installed.
+failure: Shield is enabled.
+parameters:
+  module:
+    default: shield

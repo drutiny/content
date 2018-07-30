@@ -1,0 +1,21 @@
+title: Statistics module is not installed
+name: Drupal-8:StatisticsDisabled
+class: \Drutiny\Plugin\Drupal8\Audit\ModuleDisabled
+tags:
+  - Drupal 8
+  - Best Practice
+  - Performance
+description: |
+  This module comes with Drupal core and attempts to track page view information.
+  However as often Drupal uses upstream page cache proxies this module is often
+  inccurate and not worth the performance impact it causes.
+remediation: "Disable the module: `drush pm-uninstall statistics -y`"
+success: The Statistics module is not currently enabled.
+failure: The Statistics module is currently enabled.
+warning: The Statistics module is currently enabled.
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: statistics
+severity: normal

@@ -1,0 +1,19 @@
+title: Database logging is not installed
+name: Drupal-8:DblogDisabled
+class: \Drutiny\Plugin\Drupal8\Audit\ModuleDisabled
+tags:
+  - Drupal 8
+  - Best Practice
+  - Performance
+description: |
+  The Drupal core databse logging module can cause database performance issues
+  in production. It is recommended to disable and uninstall this module. Use the
+  syslog module in its place.
+remediation: "Disable the dblog module: `drush pm-uninstall dblog -y`"
+success: The dblog module is not currently enabled.
+failure: The dblog module is currently enabled.
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: dblog
