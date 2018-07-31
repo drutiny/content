@@ -1,5 +1,5 @@
 title: "#2819197 - Cloudflare workaround for Drupal 8 urlGenerator"
-class: \Drutiny\Cloudflare\Audit\PageRuleMatch
+class: \Drutiny\Cloudflare\Audit\PageRuleAnalysis
 name: cloudflare:drupal-urlGenerator-workaround
 description: |
   By accessing a site an an unexpected base path (e.g. with index.php) a site may
@@ -7,19 +7,33 @@ description: |
   possibly lead to a duplicate content SEO penalty too. It can also impact
   caching strategy.
 remediation: |
-  Add a page rule in Cloudflare with the matching pattern of `{{rule}}`.
+  {{^settings.forwarding_url}}
+  1. Add a page rule in Cloudflare with the matching pattern of `{{rule}}`.
+  {{/settings.forwarding_url}}
 
   For this rule, ensure a Forwarding URL setting is selected and forwards to
   `{{settings.forwarding_url.url}}` with a status code of `{{settings.forwarding_url.status_code}}`
 success: |
   There is a page rule for {{rule}} which forwards to {{settings.forwarding_url.url}}
   with a status code of {{settings.forwarding_url.status_code}}.
-failure: No forwarding for {{rule}} has been setup.
+failure: |
+  {{#settings.forwarding_url}}
+  A forwarding URL was found forwarding to **{{settings.forwarding_url.url}}**
+  with a status code of **{{settings.forwarding_url.status_code}}**. Was expecting
+  a redirect to **https://{{host}}/$1** with a status code of **301**.
+  {{/settings.forwarding_url}}
+
+  {{^settings.forwarding_url}}
+  No redirect was found. Was expecting a redirect to **https://{{host}}/$1**
+  with a status code of **301**.
+  {{/settings.forwarding_url}}
 parameters:
   rule:
     default: https://:host/index.php/*
-  settings:
-    default:
-      forwarding_url:
-        url: https://:host/$1
-        status_code: 301
+  expression:
+    default: settings['forwarding_url']['status_code'] == 301
+  # settings:
+  #   default:
+  #     forwarding_url:
+  #       url: https://:host/$1
+  #       status_code: 301
