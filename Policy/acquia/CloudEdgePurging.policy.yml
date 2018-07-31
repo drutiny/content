@@ -2,20 +2,19 @@ title: "Acquia Cloud Edge Purging Enabled"
 class: \Drutiny\Plugin\Drupal8\Audit\ModuleDisabled
 name: Acquia:CloudEdgeNoPurge
 description: |
-  Acquia Cloud Edge CDN best practices recommend running a 1 minute or greater
-  Time-To-Live (TTL) at the edge opposed to purging in realtime from Drupal.
+  Acquia Cloud Edge CDN best practices recommend running a cache expiration of
+  one minute or less at the edge. This is to ensure the edge keeps an accurate
+  copy of page cache.
 
-  This is to minimize the impact of potential floods through to Acquia Cloud for
-  URLs that are complex for Drupal to render responses for.
+  The Cloudflare purger module is only required when edge invalidation is required
+  which is not the case for Acquia Cloud Edge best practice.
 remediation: |
   Uninstall the Cloudflare Purger module.
 success: |
   Cloudflare Purger is not enabled.
 failure: |
-  Cloudflare Purger module is enabled. It is not supported in conjuction with
-  Acquia Cloud Edge CDN.
-depends:
-  - Acquia:PurgeEnabled
+  Cloudflare Purger module is enabled. It is not recommended in conjuction with
+  a Acquia Cloud Edge CDN best practice implementation.
 parameters:
   module:
     default: cloudflarepurger
