@@ -1,4 +1,4 @@
-title: Page cache expiry is set
+title: Drupal Page cache expiry is set
 name: Drupal-8:PageCacheExpiry
 class: \Drutiny\Plugin\Drupal8\Audit\ConfigCheck
 tags:
