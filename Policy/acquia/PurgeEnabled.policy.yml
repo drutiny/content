@@ -1,0 +1,14 @@
+title: "Acquia Purge Enabled"
+class: \Drutiny\Audit\Drupal\ModuleEnabled
+name: Acquia:PurgeEnabled
+description: |
+  Acquia Purge modules allows updates in content to be reflected in page cache
+  in realtime on the Acquia Platform. It does this by administering bans to the
+  platform page caching service (Varnish).
+remediation: |
+  Install and enable the Acquia Purge module into your codebase.
+success: "Acquia Purge module is enabled."
+failure: Acquia Purge module is not enabled.
+parameters:
+  module:
+    default: acquia_purge

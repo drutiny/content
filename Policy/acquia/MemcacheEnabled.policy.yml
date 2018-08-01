@@ -1,0 +1,18 @@
+title: "Memcache module enabled"
+class: \Drutiny\Audit\Drupal\ModuleEnabled
+name: Acquia:MemcacheEnabled
+description: |
+  You can use the Memcache module to move some common cache queries out of the
+  database and into memory. Information held in memory will always be retrieved
+  more quickly than information retrieved from a database query.
+
+  Memcached is available for all Acquia Cloud websites. See Using Memcached for
+  information about how to use Memcached with an Acquia Cloud-hosted Drupal
+  website.
+remediation: |
+  Install and enable the memcache module into your codebase.
+success: "Memcache module is enabled."
+failure: Memcache module is not enabled.
+parameters:
+  module:
+    default: memcache
