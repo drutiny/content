@@ -1,0 +1,18 @@
+title: Devel module is not installed
+name: Drupal-8:pageCacheDisabled
+class: \Drutiny\Plugin\Drupal8\Audit\ModuleDisabled
+tags:
+  - Drupal 8
+  - Best Practice
+  - Performance
+description: |
+  Drupal's default page caching module should be disabled when a 3rd party page
+  cache is used instead.
+remediation: "Disable the module: `drush pm-uninstall page_cache -y`"
+success: The Page Cache module is not enabled.
+failure: The Page Cache module is currently enabled.
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: page_cache
