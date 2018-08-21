@@ -43,6 +43,9 @@ jobs:
       at: /tmp/workspace
     working_directory: /tmp/workspace
     steps:
+      - add_ssh_keys:
+        fingerprints:
+          - "d4:ca:62:b4:37:97:bd:fd:2d:9d:d8:83:2d:e2:68:d8"
       - deploy:
           command: ./build/publish-to-website.sh
 workflows:
