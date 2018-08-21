@@ -41,6 +41,7 @@ jobs:
       - image: circleci/php:7.1-cli-jessie-browsers
     working_directory: /tmp/workspace
     steps:
+      - checkout
       - add_ssh_keys:
           fingerprints:
             - "d4:ca:62:b4:37:97:bd:fd:2d:9d:d8:83:2d:e2:68:d8"
