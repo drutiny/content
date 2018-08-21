@@ -10,11 +10,6 @@ if [ ! -d vendor/drutiny/website/.git ]; then
   exit 1;
 fi
 
-if [ ! -f build/id_rsa ]; then
-  echo "Cannot publish: ssh private key is not present. Please run script via Travis CI."
-  exit 1;
-fi
-
 REF=`git log --pretty="%H" -1`
 
 pushd vendor/drutiny/website
