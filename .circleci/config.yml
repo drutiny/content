@@ -5,11 +5,6 @@
 version: 2
 jobs:
   build:
-    persist_to_workspace:
-      root: /tmp/workspace
-      paths:
-        - build
-        - vendor/drutiny/website
     docker:
       # specify the version you desire here
       - image: circleci/php:7.1-cli-jessie-browsers
@@ -35,17 +30,22 @@ jobs:
           key: v1-dependencies-{{ checksum "composer.json" }}
 
       - run: composer run-script build-api
+      - persist_to_workspace:
+          root: .
+          paths:
+            - build
+            - vendor/drutiny/website
   deploy:
     docker:
       # specify the version you desire here
       - image: circleci/php:7.1-cli-jessie-browsers
-    attach_workspace:
-      at: /tmp/workspace
     working_directory: /tmp/workspace
     steps:
       - add_ssh_keys:
           fingerprints:
             - "d4:ca:62:b4:37:97:bd:fd:2d:9d:d8:83:2d:e2:68:d8"
+      - attach_workspace:
+          at: /tmp/workspace
       - deploy:
           command: ./build/publish-to-website.sh
 workflows:
