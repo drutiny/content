@@ -19,8 +19,8 @@ REF=`git log --pretty="%H" -1`
 
 pushd vendor/drutiny/website
 
-git config user.name "Travis CI"
-git config user.email "drutiny@travis.ci"
+git config user.name "Drutiny Content Deployment"
+git config user.email "content@drutiny.ci"
 
 UPDATES=`git status --porcelain api/`
 

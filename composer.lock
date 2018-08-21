@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/drutiny/drutiny.github.io.git",
-                "reference": "c77f8f6f4bba97a5003490aabaeff84ff3d76043"
+                "reference": "4d0b792e9e548b9b2769d2747df05a0c0595f7ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drutiny/drutiny.github.io/zipball/c77f8f6f4bba97a5003490aabaeff84ff3d76043",
-                "reference": "c77f8f6f4bba97a5003490aabaeff84ff3d76043",
+                "url": "https://api.github.com/repos/drutiny/drutiny.github.io/zipball/4d0b792e9e548b9b2769d2747df05a0c0595f7ce",
+                "reference": "4d0b792e9e548b9b2769d2747df05a0c0595f7ce",
                 "shasum": ""
             },
             "type": "website",
@@ -35,7 +35,7 @@
             "support": {
                 "source": "https://github.com/drutiny/drutiny.github.io/tree/master"
             },
-            "time": "2018-07-25T02:50:57+00:00"
+            "time": "2018-07-31T23:30:13+00:00"
         },
         {
             "name": "romaricdrigon/metayaml",
