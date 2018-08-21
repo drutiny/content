@@ -36,6 +36,9 @@ jobs:
 
       - run: composer run-script build-api
   deploy:
+    docker:
+      # specify the version you desire here
+      - image: circleci/php:7.1-cli-jessie-browsers
     attach_workspace:
       at: /tmp/workspace
     working_directory: /tmp/workspace
