@@ -43,7 +43,8 @@ jobs:
       at: /tmp/workspace
     working_directory: /tmp/workspace
     steps:
-      - deploy: ./build/publish-to-website.sh
+      - deploy:
+          command: ./build/publish-to-website.sh
 workflows:
   version: 2
   build-deploy:
