@@ -24,7 +24,8 @@
     "scripts": {
       "build-api": [
         "php build/profile.php",
-        "php build/policy.php"
+        "php build/policy.php",
+        "git log --pretty='%H' -1 > build/REVISION"
       ]
     }
 }

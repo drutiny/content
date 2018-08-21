@@ -10,7 +10,12 @@ if [ ! -d vendor/drutiny/website/.git ]; then
   exit 1;
 fi
 
-REF=`git log --pretty="%H" -1`
+if [ ! -f build/REVISION ]; then
+  echo "No REVISION present in build."
+  exit 1;
+fi
+
+REF=`cat build/REVISION`
 
 pushd vendor/drutiny/website
 
