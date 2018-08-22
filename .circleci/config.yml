@@ -47,6 +47,8 @@ jobs:
             - "d4:ca:62:b4:37:97:bd:fd:2d:9d:d8:83:2d:e2:68:d8"
       - attach_workspace:
           at: /tmp/workspace
+      - run: ssh-add -D
+      - run: ssh-add ~/.ssh/id_rsa_d4ca62b43797bdfd2d9dd8832de268d8
       - deploy:
           command: ./build/publish-to-website.sh
 workflows:
