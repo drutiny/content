@@ -1,0 +1,17 @@
+title: Page Cache module enabled
+class: \Drutiny\Audit\Drupal\ModuleEnabled
+name: Drupal-8:PageCacheEnabled
+tags:
+  - Performance
+  - Cache
+description: |
+  Drupal's default page caching module should be enabled when a 3rd party page
+    cache (CDN) is not used.
+remediation: "Enable the module: `drush en page_cache -y`"
+success: The Page Cache module is currently enabled.
+failure: The Page Cache module is not currently enabled.
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is enabled.
+    default: page_cache
