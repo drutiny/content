@@ -9,10 +9,10 @@ type: data
 failure: The analytics request failed.
 chart:
   timeseries:
-    type: line
+    type: bar
     stacked: true
     labels: tr td:first-child()
-    hide-table: false
+    hide-table: true
     title: Threats over time
     legend: bottom
     y-axis: Threats

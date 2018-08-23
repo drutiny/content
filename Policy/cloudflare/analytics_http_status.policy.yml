@@ -18,7 +18,7 @@ chart:
       - tr td:nth-child(2)
   timeseries:
     table-index: 1
-    type: line
+    type: bar
     stacked: true
     labels: tr td:first-child
     hide-table: true
@@ -85,7 +85,7 @@ success: |
   Since | Until | 200 | 206 | 301 | 302 | 400 | 403 | 404 | 416 | 499 | 500 | 503 | 504 | 522 | 523
   ----- | ----- | --- | --- | --- | --- | --- | --- | ----| --- | --- | --- | --- | --- | --- | ---
   {{#result.timeseries}}
-  {{since}} | {{until}} | {{requests.http_status.empty}} | {{requests.http_status.206}} | {{requests.http_status.301}} | {{requests.http_status.302}} | {{requests.http_status.400}} | {{requests.http_status.403}} | {{requests.http_status.404}} | {{requests.http_status.416}} | {{requests.http_status.499}} | {{requests.http_status.500}} | {{requests.http_status.503}} | {{requests.http_status.504}} | {{requests.http_status.522}} | {{requests.http_status.523}}
+  {{since}} | {{until}} | {{requests.http_status.206}} | {{requests.http_status.301}} | {{requests.http_status.302}} | {{requests.http_status.400}} | {{requests.http_status.403}} | {{requests.http_status.404}} | {{requests.http_status.416}} | {{requests.http_status.499}} | {{requests.http_status.500}} | {{requests.http_status.503}} | {{requests.http_status.504}} | {{requests.http_status.522}} | {{requests.http_status.523}}
   {{/result.timeseries}}
 parameters:
   expression:

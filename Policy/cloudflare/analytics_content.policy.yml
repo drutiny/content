@@ -29,7 +29,7 @@ chart:
       - tr td:nth-child(3)
   ssl_timeseries:
     table-index: 1
-    type: line
+    type: bar
     stacked: true
     labels: tr td:first-child
     hide-table: true
