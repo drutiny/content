@@ -6,7 +6,9 @@ policies:
     severity: critical
   Test:Fail:
     severity: high
-  Test:Warning: {}
-  Test:NA: {}
-  Test:Error: {}
-  Test:Notice: {}
+  Test:Warning:
+  Test:NA:
+  Test:Error:
+  Test:Notice:
+  # This should never appear on a report as it gets omitted.
+  Test:Irrelevant:
