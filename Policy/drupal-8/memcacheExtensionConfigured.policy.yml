@@ -6,7 +6,7 @@ tags:
 description: |
     In order for the memcache module to work, the php [memcache**d** extension](http://php.net/manual/en/book.memcached.php)
     must be available on the runtime environment. In addition, when using PHP 5.6,
-    Drupal must tell the memcache module to use the  memcache**d** extension (opposed to 
+    Drupal must tell the memcache module to use the  memcache**d** extension (opposed to
     the memcache extension).
 
 remediation: |
@@ -31,4 +31,5 @@ parameters:
       The value that should be set if the settings key exists.
     default: Memcached
 depends:
-  - Drupal-8:MemcacheEnabled
+  - expression: not semver_gt(target('php_version'), '5.6')
+    on_fail: 'omit'
