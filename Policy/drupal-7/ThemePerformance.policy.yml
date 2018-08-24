@@ -1,0 +1,14 @@
+title: Theme performance review
+name: Drupal-7:ThemePerformance
+class: \Drutiny\Plugin\Drupal7\Audit\Performance\ThemePerformance
+tags:
+  - Drupal 7
+  - Performance
+description: |
+   Perform a basic performance review against your theme code.
+remediation: "Review the findings and clean up the code where possible."
+success: No findings, nothing to report.
+failure: "
+    {{#messages}}
+       {{ . }} <br /><br />
+    {{/messages}}"
