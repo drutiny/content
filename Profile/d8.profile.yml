@@ -25,3 +25,4 @@ policies:
     Drupal-8:User1LockDown: {}
     Drupal-8:UserRegistrationAdminOnly: {}
     Drupal-8:WebprofilerDisabled: {}
+    Drupal-8:ContentOwnedByAnonymous: {}
