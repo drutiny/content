@@ -22,13 +22,12 @@ jobs:
           - v1-dependencies-
 
       - run: composer install --no-interaction
-      - run: composer update drutiny/website --no-interaction
-
       - save_cache:
           paths:
             - ./vendor
           key: v1-dependencies-{{ checksum "composer.json" }}
 
+      - run: composer update drutiny/website --no-interaction
       - run: composer run-script build-api
       - persist_to_workspace:
           root: .
