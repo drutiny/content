@@ -1,9 +1,10 @@
-title: Drupal Theme Security
+title: Drupal Theme Security & Performance
 class: Drutiny\Audit\Filesystem\CodeScan
 name: Drupal:ThemeSecurity
 tags:
   - Best Practice
   - Security
+  - Performance
 description: |
   Some basic checks to ensure that the theme is not doing any seriously bad
   things. Note this is not supposed to be perfect, but used as an aid in
@@ -43,3 +44,20 @@ parameters:
       - "proc_open"
       - "system\\("
       - "sleep\\("
+      - "mysql_"
+      - "mysqli"
+      - "sqlite"
+      - "db_query"
+      - "db_fetch"
+      - "db_result"
+      - "pager_query"
+      - "db_set_active"
+      - "db_select"
+      - "db_insert"
+      - "db_update"
+      - "db_delete"
+      - "fetchAll"
+      - "fetchField"
+      - "fetchObject"
+      - "fetchAssoc"
+      - "countQuery"
