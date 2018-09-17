@@ -1,0 +1,18 @@
+title: Views UI module is not installed
+class: \Drutiny\Plugin\Drupal8\Audit\ModuleDisabled
+name: Drupal-8:ViewsUIDisabled
+tags:
+  - Drupal 8
+  - Best Practice
+  - Performance
+description: |
+  This module can impose a small performance penalty when enabled, and 
+  can allow the essential views required by your website to be modified.
+remediation: "Disable the module: `drush pm-uninstall views_ui -y`"
+success: The Views UI module is not currently enabled.
+failure: The Views UI module is currently enabled.
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: views_ui
