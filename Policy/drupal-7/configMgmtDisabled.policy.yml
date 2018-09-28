@@ -1,0 +1,20 @@
+title: Configuration Management is not installed
+name: Drupal-7:configMgmtDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
+tags:
+  - Drupal 7
+  - Best Practice
+  - Performance
+description: |
+  This module requires a writeable directory that is also trackable at the 
+  same time by Git; this is not currently possible on Acquia Cloud. It is 
+  recommended to disable and uninstall this module.
+remediation: |
+  Disable the Configuration Management module: `drush pm-uninstall configuration -y`.
+success: The Configuration Management module is not currently enabled.
+failure: The Configuration Management module is currently enabled.
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: configuration
