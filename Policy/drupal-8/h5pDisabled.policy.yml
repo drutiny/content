@@ -1,0 +1,21 @@
+title: H5P is not installed
+name: Drupal-8:h5pDisabled
+class: \Drutiny\Plugin\Drupal8\Audit\ModuleDisabled
+tags:
+  - Drupal 8
+  - Best Practice
+  - Performance
+description: |
+  The H5P module sets session cookies for anonymous visitors utilizing 
+  pages that contain H5P elements. This results in all future requests 
+  for those anonymous users to bypass Varnish caching. It is recommended 
+  to disable and uninstall this module.
+remediation: |
+  Disable the H5P module: `drush pm-uninstall h5p -y`.
+success: The H5P module is not currently enabled.
+failure: The H5P module is currently enabled.
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: h5p
