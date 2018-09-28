@@ -1,5 +1,5 @@
 title: Varnish Module is not installed
-name: Drupal-8:varnishDisabled
+name: Drupal-8:varnishModuleDisabled
 class: \Drutiny\Plugin\Drupal8\Audit\ModuleDisabled
 tags:
   - Drupal 8
