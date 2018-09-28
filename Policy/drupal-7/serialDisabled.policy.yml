@@ -1,0 +1,20 @@
+title: Serial is not installed
+name: Drupal-7:serialDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
+tags:
+  - Drupal 7
+  - Best Practice
+  - Performance
+description: |
+  Serial is based on an auto_increment of 1. Acquia Cloud uses an 
+  auto_increment of five. It is recommended to disable and uninstall 
+  this module.
+remediation: |
+  Disable the Serial module: `drush pm-uninstall serial -y`.
+success: The Serial module is not currently enabled.
+failure: The Serial module is currently enabled.
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: serial

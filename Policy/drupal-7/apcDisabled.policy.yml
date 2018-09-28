@@ -1,0 +1,22 @@
+title: APC is not installed
+name: Drupal-7:apcDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
+tags:
+  - Drupal 7
+  - Best Practice
+  - Performance
+description: |
+  Alternative PHP cache is not recommended on Acquia Cloud. It stores 
+  data on a per-server basis, which can lead to different data being 
+  served by different servers. It also uses memory that would otherwise 
+  be used by OPcache. We recommend using Memcachedinstead. It is 
+  recommended to disable and uninstall this module.
+remediation: |
+  Disable the APC module: `drush pm-uninstall apc -y`.
+success: The APC module is not currently enabled.
+failure: The APC module is currently enabled.
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: apc

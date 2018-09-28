@@ -1,0 +1,21 @@
+title: TB Mega Menu is not installed
+name: Drupal-7:tbMegaMenuDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
+tags:
+  - Drupal 7
+  - Best Practice
+  - Performance
+description: |
+  This module can cause performance problems for your website and is not 
+  covered by Drupal’s security policy. If it must be used, patch the 
+  module to reduce calls made to your website’s database. It is 
+  recommended to disable and uninstall this module.
+remediation: |
+  Disable the TB Mega Menu module: `drush pm-uninstall tb_megamenu -y`.
+success: The TB Mega Menu module is not currently enabled.
+failure: The TB Mega Menu module is currently enabled.
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: tb_megamenu

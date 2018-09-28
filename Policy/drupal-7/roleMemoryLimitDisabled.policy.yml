@@ -1,0 +1,19 @@
+title: Role Memory Limit is not installed
+name: Drupal-7:roleMemoryLimitDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
+tags:
+  - Drupal 7
+  - Best Practice
+  - Performance
+description: |
+  This module overrides memory limits set in settings.php. It is 
+  recommended to disable and uninstall this module.
+remediation: |
+  Disable the Role Memory Limit module: `drush pm-uninstall role_memory_limit -y`.
+success: The Role Memory Limit module is not currently enabled.
+failure: The Role Memory Limit module is currently enabled.
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: role_memory_limit

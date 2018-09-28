@@ -1,0 +1,20 @@
+title: Text Size is not installed
+name: Drupal-7:textSizeDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
+tags:
+  - Drupal 7
+  - Best Practice
+  - Performance
+description: |
+  This module requires session cookies to be set, preventing Varnish 
+  from caching pages. It is recommended to disable and uninstall this 
+  module.
+remediation: |
+  Disable the Text Size module: `drush pm-uninstall textsize -y`.
+success: The Text Size module is not currently enabled.
+failure: The Text Size module is currently enabled.
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: textsize

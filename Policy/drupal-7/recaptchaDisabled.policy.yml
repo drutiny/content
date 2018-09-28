@@ -1,0 +1,21 @@
+title: reCAPTCHA is not installed
+name: Drupal-7:recaptchaDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
+tags:
+  - Drupal 7
+  - Best Practice
+  - Performance
+description: |
+  The reCAPTCHA module requires session cookies to be set. This functionality 
+  prevents Varnish from caching pages. It is recommended to disable and 
+  uninstall this module.
+remediation: |
+  Disable the recaptcha module: `drush pm-uninstall recaptcha -y`. Review our 
+  documentation for alternative solutions https://support.acquia.com/hc/en-us/articles/360005823294-CAPTCHA-solutions-and-alternatives.
+success: The reCAPTCHA module is not currently enabled.
+failure: The reCAPTCHA module is currently enabled.
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: recaptcha
