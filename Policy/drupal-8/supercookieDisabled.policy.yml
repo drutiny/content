@@ -1,0 +1,20 @@
+title: Super Cookie is not installed
+name: Drupal-8:supercookieDisabled
+class: \Drutiny\Plugin\Drupal8\Audit\ModuleDisabled
+tags:
+  - Drupal 8
+  - Best Practice
+  - Performance
+description: |
+  Stores sessions outside of the session table, and sets no cache 
+  headers. This module is also incompatible with Varnish. It is 
+  recommended to disable and uninstall this module.
+remediation: |
+  Disable the Super Cookie module: `drush pm-uninstall supercookie -y`.
+success: The Super Cookie module is not currently enabled.
+failure: The Super Cookie module is currently enabled.
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: supercookie
