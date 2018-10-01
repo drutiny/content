@@ -1,8 +1,8 @@
 title: reCAPTCHA is not installed
-name: Drupal-8:recaptchaDisabled
-class: \Drutiny\Plugin\Drupal8\Audit\ModuleDisabled
+name: Drupal-7:recaptchaDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
 tags:
-  - Drupal 8
+  - Drupal 7
   - Best Practice
   - Performance
 description: |
@@ -14,6 +14,9 @@ remediation: |
   documentation for alternative solutions https://support.acquia.com/hc/en-us/articles/360005823294-CAPTCHA-solutions-and-alternatives.
 success: The reCAPTCHA module is not currently enabled.
 failure: The reCAPTCHA module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('recaptcha')
+    on_fail: omit
 parameters:
   module:
     type: string

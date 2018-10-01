@@ -13,6 +13,9 @@ remediation: |
   Disable the Super Cookie module: `drush pm-uninstall supercookie -y`.
 success: The Super Cookie module is not currently enabled.
 failure: The Super Cookie module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('supercookie')
+    on_fail: omit
 parameters:
   module:
     type: string

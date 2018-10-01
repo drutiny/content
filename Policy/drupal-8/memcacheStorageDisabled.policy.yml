@@ -1,20 +1,22 @@
 title: Memcache Storage is not installed
-name: Drupal-8:memcacheStorageDisabled
-class: \Drutiny\Plugin\Drupal8\Audit\ModuleDisabled
+name: Drupal-7:memcacheStorageDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
 tags:
-  - Drupal 8
+  - Drupal 7
   - Best Practice
   - Performance
 description: |
-  Although not incompatible, Acquia discourages using this module’s due 
-  to its developer’s limited updates. Instead, Acquia encourages the use 
-  of the Memcache API and Integration module, which integrates better 
-  with Acquia’s memcached implementation. It is recommended to disable 
+  Although not incompatible, it is discouraged to use this module’s due 
+  to its developer’s limited updates. Instead, encourage the use 
+  of the Memcache API and Integration module. It is recommended to disable 
   and uninstall this module.
 remediation: |
   Disable the Memcache Storage module: `drush pm-uninstall memcache_storage -y`.
 success: The Memcache Storage module is not currently enabled.
 failure: The Memcache Storage module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('memcache_storage')
+    on_fail: omit
 parameters:
   module:
     type: string

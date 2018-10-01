@@ -12,6 +12,9 @@ remediation: |
   Disable the Views Global Filter module: `drush pm-uninstall global_filter -y`.
 success: The Views Global Filter module is not currently enabled.
 failure: The Views Global Filter module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('global_filter')
+    on_fail: omit
 parameters:
   module:
     type: string

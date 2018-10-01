@@ -14,6 +14,9 @@ remediation: |
   Disable the TB Mega Menu module: `drush pm-uninstall tb_megamenu -y`.
 success: The TB Mega Menu module is not currently enabled.
 failure: The TB Mega Menu module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('tb_megamenu')
+    on_fail: omit
 parameters:
   module:
     type: string

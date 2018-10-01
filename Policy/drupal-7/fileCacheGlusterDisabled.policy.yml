@@ -1,5 +1,5 @@
-title: File Cache is not installed
-name: Drupal-7:fileCacheDisabled
+title: File Cache with Gluster is not installed
+name: Drupal-7:fileCacheGlusterDisabled
 class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
 tags:
   - Drupal 7
@@ -14,6 +14,9 @@ remediation: |
   Disable the File Cache module: `drush pm-uninstall filecache -y`.
 success: The File Cache module is not currently enabled.
 failure: The File Cache module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('filecache')
+    on_fail: omit
 parameters:
   module:
     type: string

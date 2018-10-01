@@ -12,6 +12,9 @@ remediation: |
   Disable the filter_harmonizer module: `drush pm-uninstall filter_harmonizer -y`.
 success: The Views Filter Harmonizer module is not currently enabled.
 failure: The Views Filter Harmonizer module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('filter_harmonizer')
+    on_fail: omit
 parameters:
   module:
     type: string

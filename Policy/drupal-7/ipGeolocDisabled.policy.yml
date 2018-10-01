@@ -12,6 +12,9 @@ remediation: |
   Disable the IP Geolocation module: `drush pm-uninstall ip_geoloc -y`.
 success: The IP Geolocation module is not currently enabled.
 failure: The IP Geolocation module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('ip_geoloc')
+    on_fail: omit
 parameters:
   module:
     type: string

@@ -1,8 +1,8 @@
 title: Smart IP is not installed
-name: Drupal-8:smartIPDisabled
-class: \Drutiny\Plugin\Drupal8\Audit\ModuleDisabled
+name: Drupal-7:smartIPDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
 tags:
-  - Drupal 8
+  - Drupal 7
   - Best Practice
   - Performance
 description: |
@@ -13,6 +13,9 @@ remediation: |
   Disable the Smart IP module: `drush pm-uninstall smart_ip -y`.
 success: The Smart IP module is not currently enabled.
 failure: The Smart IP module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('smart_ip')
+    on_fail: omit
 parameters:
   module:
     type: string

@@ -1,8 +1,8 @@
 title: IP Geolocation is not installed
-name: Drupal-8:ipGeolocDisabled
-class: \Drutiny\Plugin\Drupal8\Audit\ModuleDisabled
+name: Drupal-7:ipGeolocDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
 tags:
-  - Drupal 8
+  - Drupal 7
   - Best Practice
   - Performance
 description: |
@@ -12,6 +12,9 @@ remediation: |
   Disable the IP Geolocation module: `drush pm-uninstall ip_geoloc -y`.
 success: The IP Geolocation module is not currently enabled.
 failure: The IP Geolocation module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('ip_geoloc')
+    on_fail: omit
 parameters:
   module:
     type: string

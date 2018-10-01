@@ -12,6 +12,9 @@ remediation: |
   Disable the Role Memory Limit module: `drush pm-uninstall role_memory_limit -y`.
 success: The Role Memory Limit module is not currently enabled.
 failure: The Role Memory Limit module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('role_memory_limit')
+    on_fail: omit
 parameters:
   module:
     type: string

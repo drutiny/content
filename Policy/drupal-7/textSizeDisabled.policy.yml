@@ -13,6 +13,9 @@ remediation: |
   Disable the Text Size module: `drush pm-uninstall textsize -y`.
 success: The Text Size module is not currently enabled.
 failure: The Text Size module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('textsize')
+    on_fail: omit
 parameters:
   module:
     type: string

@@ -13,6 +13,9 @@ remediation: |
   Disable the Smart IP module: `drush pm-uninstall smart_ip -y`.
 success: The Smart IP module is not currently enabled.
 failure: The Smart IP module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('smart_ip')
+    on_fail: omit
 parameters:
   module:
     type: string

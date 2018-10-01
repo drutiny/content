@@ -1,8 +1,8 @@
 title: Text Size is not installed
-name: Drupal-8:textSizeDisabled
-class: \Drutiny\Plugin\Drupal8\Audit\ModuleDisabled
+name: Drupal-7:textSizeDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
 tags:
-  - Drupal 8
+  - Drupal 7
   - Best Practice
   - Performance
 description: |
@@ -13,6 +13,9 @@ remediation: |
   Disable the Text Size module: `drush pm-uninstall textsize -y`.
 success: The Text Size module is not currently enabled.
 failure: The Text Size module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('textsize')
+    on_fail: omit
 parameters:
   module:
     type: string

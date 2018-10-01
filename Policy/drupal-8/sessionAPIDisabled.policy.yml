@@ -1,19 +1,23 @@
 title: Session API is not installed
-name: Drupal-8:sessionAPIDisabled
-class: \Drutiny\Plugin\Drupal8\Audit\ModuleDisabled
+name: Drupal-7:sessionAPIDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
 tags:
-  - Drupal 8
+  - Drupal 7
   - Best Practice
   - Performance
 description: |
   Requires session cookies to be set, preventing Varnish from caching 
   pages. Session API sets cookies on the user. Because of this, cron can 
   run intense queries to join the session and session_api tables. This 
-  can cause major slowdowns. It is recommended to disable and uninstall this module.
+  can cause major slowdowns. It is recommended to disable and uninstall 
+  this module.
 remediation: |
   Disable the Session API module: `drush pm-uninstall session_api -y`.
 success: The Session API module is not currently enabled.
 failure: The Session API module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('session_api')
+    on_fail: omit
 parameters:
   module:
     type: string

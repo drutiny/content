@@ -1,8 +1,8 @@
 title: Block Cache Alter is not installed
-name: Drupal-7:blockcacheAlterDisabled
-class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
+name: Drupal-8:blockcacheAlterDisabled
+class: \Drutiny\Plugin\Drupal8\Audit\ModuleDisabled
 tags:
-  - Drupal 7
+  - Drupal 8
   - Best Practice
   - Performance
 description: |
@@ -13,9 +13,6 @@ remediation: |
   Disable the Block Cache Alter module: `drush pm-uninstall blockcache_alter -y`.
 success: The Block Cache Alter module is not currently enabled.
 failure: The Block Cache Alter module is currently enabled.
-depends:
-  - expression: drupal_module_enabled('blockcache_alter')
-    on_fail: omit
 parameters:
   module:
     type: string
