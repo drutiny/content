@@ -1,0 +1,25 @@
+title: Varnish Module is not installed
+name: Drupal-7:acquiaVarnishModuleDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
+tags:
+  - Drupal 7
+  - Best Practice
+  - Performance
+description: |
+  This Drupal module attempts to replicate the effort of the Varnish Cache 
+  that is already available to Acquia Cloud applications. It will not work 
+  with Acquia Cloud applications because it requires connections to the 
+  load balancers, which Acquia does not provide. The Varnish caching 
+  provided by Acquia works out of the box, as long as you use caching.
+remediation: |
+  Disable the varnish module: `drush pm-uninstall varnish -y`.
+success: The Varnish module is not currently enabled.
+failure: The Varnish module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('varnish')
+    on_fail: omit
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: varnish
