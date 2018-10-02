@@ -1,0 +1,24 @@
+title: File Cache with Gluster is not installed
+name: Drupal-7:fileCacheGlusterDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
+tags:
+  - Drupal 7
+  - Best Practice
+  - Performance
+description: |
+  The File Cache module moves caching to Gluster, which can cause major 
+  load on the Gluster file system and can cause the site (or multiple 
+  sites in the case of shared hosting) to go down. It is recommended to 
+  disable and uninstall this module.
+remediation: |
+  Disable the File Cache module: `drush pm-uninstall filecache -y`.
+success: The File Cache module is not currently enabled.
+failure: The File Cache module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('filecache')
+    on_fail: omit
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: filecache

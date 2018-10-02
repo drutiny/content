@@ -1,0 +1,23 @@
+title: Session Cache API is not installed
+name: Drupal-7:sessionCacheDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
+tags:
+  - Drupal 7
+  - Best Practice
+  - Performance
+description: |
+  This module is generally incompatible with Varnish caching. It may also 
+  cause file system performance issues. It is recommended to disable and 
+  uninstall this module.
+remediation: |
+  Disable the Session Cache API module: `drush pm-uninstall session_cache -y`.
+success: The Session Cache API module is not currently enabled.
+failure: The Session Cache API module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('session_cache')
+    on_fail: omit
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: session_cache

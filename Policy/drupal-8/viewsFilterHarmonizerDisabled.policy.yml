@@ -1,0 +1,22 @@
+title: Views Filter Harmonizer is not installed
+name: Drupal-7:viewsFilterHarmonizerDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
+tags:
+  - Drupal 7
+  - Best Practice
+  - Performance
+description: |
+  This module sets a SESSION cookie, preventing Varnish caching. It is 
+  recommended to disable and uninstall this module.
+remediation: |
+  Disable the filter_harmonizer module: `drush pm-uninstall filter_harmonizer -y`.
+success: The Views Filter Harmonizer module is not currently enabled.
+failure: The Views Filter Harmonizer module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('filter_harmonizer')
+    on_fail: omit
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: filter_harmonizer
