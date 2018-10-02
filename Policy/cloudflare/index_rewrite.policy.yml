@@ -8,11 +8,11 @@ description: |
   caching strategy.
 remediation: |
   {{^settings.forwarding_url}}
-  1. Add a page rule in Cloudflare with the matching pattern of `{{rule}}`.
+  1. Add a page rule in Cloudflare with the matching pattern of `https://{{host}}/index.php/*`.
   {{/settings.forwarding_url}}
 
   For this rule, ensure a Forwarding URL setting is selected and forwards to
-  `{{settings.forwarding_url.url}}` with a status code of `{{settings.forwarding_url.status_code}}`
+  `https://{{host}}/$1` with a status code of `301`
 success: |
   There is a page rule for {{rule}} which forwards to {{settings.forwarding_url.url}}
   with a status code of {{settings.forwarding_url.status_code}}.
@@ -31,7 +31,7 @@ parameters:
   rule:
     default: https://:host/index.php/*
   expression:
-    default: settings['forwarding_url']['status_code'] == 301
+    default: array_key_exists('forwarding_url', settings) and (settings['forwarding_url']['status_code'] == 301)
   # settings:
   #   default:
   #     forwarding_url:
