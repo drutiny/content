@@ -1,0 +1,25 @@
+title: Honeypot Time Limit
+name: Drupal-8:honeypotTimeLimit
+class: \Drutiny\Plugin\Drupal8\Audit\ConfigCheck
+tags:
+  - Drupal 8
+  - Best Practice
+  - Performance
+description: |
+  This module has a time-based session variable that can make pages 
+  uncacheable by Drupal or Varnish caches. This setting should be configured 
+  to be disabled.
+remediation: |
+  Set the configuration object `honeypot.settings` key `time_limit` to be `0`.
+success: Honeypot is configured properly.
+failure: Honeypot is not configured properly.
+depends:
+  - expression: drupal_module_enabled('honeypot')
+    on_fail: omit
+parameters:
+  collection:
+    default: 'honeypot.settings'
+  key:
+    default: 'time_limit'
+  value:
+    default: 0
