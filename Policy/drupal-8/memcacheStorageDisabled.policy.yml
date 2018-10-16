@@ -1,8 +1,8 @@
 title: Memcache Storage is not installed
-name: Drupal-7:memcacheStorageDisabled
-class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
+name: Drupal-8:memcacheStorageDisabled
+class: \Drutiny\Plugin\Drupal8\Audit\ModuleDisabled
 tags:
-  - Drupal 7
+  - Drupal 8
   - Best Practice
   - Performance
 description: |
