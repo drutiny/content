@@ -5,8 +5,12 @@ tags:
   - Drupal 8
   - Best Practice
   - Performance
-description: With Javascript aggregation not installed your website visitors are experiencing slower page performance especially on slower networks.
-remediation: Set the configuration object `system.performance` key `js.preprocess` to be `TRUE`.
+description: |
+  With Javascript aggregation not installed your website visitors 
+  are experiencing slower page performance especially on slower networks.
+  More information at:
+  https://docs.acquia.com/acquia-cloud/performance/#css-and-javascript-aggregation
+remediation: Set the configuration object `system.performance` key `js.preprocess` to be `TRUE` or configure at http://[server_URL]/admin/config/development/performance.
 success: Javascript aggregation is enabled.
 failure: Javascript aggregation is not enabled.
 parameters:

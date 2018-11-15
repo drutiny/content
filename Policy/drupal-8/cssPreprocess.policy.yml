@@ -5,8 +5,12 @@ tags:
   - Drupal 8
   - Best Practice
   - Performance
-description: With CSS optimization not installed your website visitors are experiencing slower page performance and the server load is increased.
-remediation: Set the configuration object `system.performance` key `css.preprocess` to be `TRUE`.
+description: |
+  With CSS optimization not installed your website visitors 
+  are experiencing slower page performance and the server load is increased.
+  More information at:
+  https://docs.acquia.com/acquia-cloud/performance/#css-and-javascript-aggregation
+remediation: Set the configuration object `system.performance` key `css.preprocess` to be `TRUE` or configure at http://[server_URL]/admin/config/development/performance.
 success: CSS aggregation is enabled.
 failure: CSS aggregation is not enabled.
 parameters:
