@@ -1,0 +1,24 @@
+title: Radioactivity is not installed
+name: Drupal-7:acquiaRadioactivityDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
+tags:
+  - Drupal 7
+  - Best Practice
+  - Performance
+description: |
+  This module requires that memcache servers be hardcoded in a separate 
+  configuration file, which directly conflicts with Acquia’s high availability 
+  services. Acquia’s platform dynamically modifies available memcache servers, 
+  and hardcoded servers can cause application outages.
+remediation: |
+  Disable the Radioactivity module: `drush pm-uninstall radioactivity -y`.
+success: The Radioactivity module is not currently enabled.
+failure: The Radioactivity module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('radioactivity')
+    on_fail: omit
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: radioactivity

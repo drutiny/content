@@ -1,0 +1,23 @@
+title: Authcache is not installed
+name: Drupal-7:acquiaAuthcacheDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
+tags:
+  - Drupal 7
+  - Best Practice
+  - Performance
+description: |
+  This requires an evaluation of performance issues versus application 
+  complexity. Caching pages or blocks is often a better option. This 
+  module can significantly increase the size of your page cache.
+remediation: |
+  Disable the Authcache module: `drush pm-uninstall authcache -y`.
+success: The Authcache module is not currently enabled.
+failure: The Authcache module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('authcache')
+    on_fail: omit
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: authcache

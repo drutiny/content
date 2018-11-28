@@ -1,0 +1,22 @@
+title: Workbench Moderation is not installed
+name: Drupal-7:acquiaWorkbenchModerationDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
+tags:
+  - Drupal 7
+  - Best Practice
+  - Performance
+description: |
+  This module does not work out of the box with ApacheSolr 
+  search integration. Learn more about problems and a solution.
+remediation: |
+  Disable the Workbench Moderation module: `drush pm-uninstall workbench_moderation -y`.
+success: The Workbench Moderation module is not currently enabled.
+failure: The Workbench Moderation module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('workbench_moderation')
+    on_fail: omit
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: workbench_moderation

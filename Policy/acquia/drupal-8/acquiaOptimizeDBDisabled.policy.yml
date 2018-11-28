@@ -1,0 +1,23 @@
+title: Optimize DB is not installed
+name: Drupal-8:acquiaOptimizeDBDisabled
+class: \Drutiny\Plugin\Drupal8\Audit\ModuleDisabled
+tags:
+  - Drupal 8
+  - Best Practice
+  - Performance
+description: |
+  Using this module improperly can potentially cause slowdowns or outages. 
+  If you feel your site has tables that need optimizing, contact 
+  Acquia Support.
+remediation: |
+  Disable the Optimize DB module: `drush pm-uninstall optimizedb -y`.
+success: The Optimize DB module is not currently enabled.
+failure: The Optimize DB module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('optimizedb')
+    on_fail: omit
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: optimizedb

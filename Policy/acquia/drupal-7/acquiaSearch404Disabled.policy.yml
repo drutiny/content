@@ -1,0 +1,23 @@
+title: Search 404 is not installed
+name: Drupal-7:acquiaSearch404Disabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
+tags:
+  - Drupal 7
+  - Best Practice
+  - Performance
+description: |
+  This useful module triggers a search when a user lands on a 404 page. This 
+  is best used with Fast 404 to prevent missing files from also triggering 
+  a search.
+remediation: |
+  Disable the Search 404 module: `drush pm-uninstall search404 -y`.
+success: The Search 404 module is not currently enabled.
+failure: The Search 404 module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('search404')
+    on_fail: omit
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: search404

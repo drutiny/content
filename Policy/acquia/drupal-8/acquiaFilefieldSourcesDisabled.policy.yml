@@ -1,0 +1,24 @@
+title: Filefield Sources is not installed
+name: Drupal-8:acquiaFilefieldSourcesDisabled
+class: \Drutiny\Plugin\Drupal8\Audit\ModuleDisabled
+tags:
+  - Drupal 8
+  - Best Practice
+  - Performance
+description: |
+  Using this module on Acquia Cloud causes issues with Acquia Remote 
+  Administration services. If you are using this module, it conflicts 
+  with the Stage File proxy module, and you will not be able to see 
+  images on your RA environment.
+remediation: |
+  Disable the Filefield Sources module: `drush pm-uninstall filefield_sources -y`.
+success: The Filefield Sources module is not currently enabled.
+failure: The Filefield Sources module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('filefield_sources')
+    on_fail: omit
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: filefield_sources

@@ -1,0 +1,22 @@
+title: Devinci is not installed
+name: Drupal-8:acquiaDevinciDisabled
+class: \Drutiny\Plugin\Drupal8\Audit\ModuleDisabled
+tags:
+  - Drupal 8
+  - Best Practice
+  - Performance
+description: |
+  This module does not include settings for the Acquia Remote 
+  Administration environment.
+remediation: |
+  Disable the Devinci module: `drush pm-uninstall devinci -y`.
+success: The Devinci module is not currently enabled.
+failure: The Devinci module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('devinci')
+    on_fail: omit
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: devinci

@@ -1,0 +1,23 @@
+title: Bean is not installed
+name: Drupal-7:acquiaBeanDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
+tags:
+  - Drupal 7
+  - Best Practice
+  - Performance
+description: |
+  Specifically, we recommend against the use of bean_entitycache. When 
+  combined with the Memcache module, its behavior is unpredictable, and 
+  its use can have a negative performance impact on your application.
+remediation: |
+  Disable the Bean module: `drush pm-uninstall bean -y`.
+success: The Bean module is not currently enabled.
+failure: The Bean module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('bean')
+    on_fail: omit
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: bean

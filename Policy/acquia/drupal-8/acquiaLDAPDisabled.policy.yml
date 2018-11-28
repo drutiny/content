@@ -1,0 +1,23 @@
+title: Lightweight Directory Access Protocol (LDAP) is not installed
+name: Drupal-8:acquiaLDAPDisabled
+class: \Drutiny\Plugin\Drupal8\Audit\ModuleDisabled
+tags:
+  - Drupal 8
+  - Best Practice
+  - Performance
+description: |
+  LDAP alone without SSO can work on Acquia Cloud. SSO requires 
+  NTLM (NT LAN Manager) support, which is an Apache module that Acquia 
+  does not currently support.
+remediation: |
+  Disable the Lightweight Directory Access Protocol (LDAP) module: `drush pm-uninstall ldap -y`.
+success: The Lightweight Directory Access Protocol (LDAP) module is not currently enabled.
+failure: The Lightweight Directory Access Protocol (LDAP) module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('ldap')
+    on_fail: omit
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: ldap

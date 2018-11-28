@@ -1,0 +1,22 @@
+title: Redirect 403 to User Login is not installed
+name: Drupal-8:acquiaR4032LoginDisabled
+class: \Drutiny\Plugin\Drupal8\Audit\ModuleDisabled
+tags:
+  - Drupal 8
+  - Best Practice
+  - Performance
+description: |
+  This may cause issues with anonymous session cookies. Disable the Access 
+  denied. You must log in to view this page. check box in the module settings.
+remediation: |
+  Disable the Redirect 403 to User Login module: `drush pm-uninstall r4032login -y`.
+success: The Redirect 403 to User Login module is not currently enabled.
+failure: The Redirect 403 to User Login module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('r4032login')
+    on_fail: omit
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: r4032login

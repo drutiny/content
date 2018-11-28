@@ -1,0 +1,23 @@
+title: Print is not installed
+name: Drupal-7:acquiaPrintDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
+tags:
+  - Drupal 7
+  - Best Practice
+  - Performance
+description: |
+  If not properly secured, this module can open up your application to being 
+  abused as a spam relay. If you use this module, be sure to configure it so 
+  that anonymous users cannot send email.
+remediation: |
+  Disable the Print module: `drush pm-uninstall print -y`.
+success: The Print module is not currently enabled.
+failure: The Print module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('print')
+    on_fail: omit
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: print

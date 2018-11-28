@@ -1,0 +1,23 @@
+title: Elysia Cron is not installed
+name: Drupal-7:acquiaElysiaCronDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
+tags:
+  - Drupal 7
+  - Best Practice
+  - Performance
+description: |
+  Elysia Cron requires careful setup. Acquia Support has seen implementations 
+  of this module that call some hooks too frequently, causing performance 
+  problems significant enough to take a production application down.
+remediation: |
+  Disable the Elysia Cron module: `drush pm-uninstall elysia_cron -y`.
+success: The Elysia Cron module is not currently enabled.
+failure: The Elysia Cron module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('elysia_cron')
+    on_fail: omit
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: elysia_cron
