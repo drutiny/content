@@ -1,0 +1,21 @@
+title: WURFL is not installed
+name: Drupal-8:acquiaWURFLDisabled
+class: \Drutiny\Plugin\Drupal8\Audit\ModuleDisabled
+tags:
+  - Drupal 8
+  - Best Practice
+  - Performance
+description: |
+  Create a symlink to your private files area.
+remediation: |
+  Disable the WURFL module: `drush pm-uninstall wurfl -y`.
+success: The WURFL module is not currently enabled.
+failure: The WURFL module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('wurfl')
+    on_fail: omit
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: wurfl

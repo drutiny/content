@@ -1,0 +1,21 @@
+title: HTML Purifier is not installed
+name: Drupal-7:acquiaHTMLPurifierDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
+tags:
+  - Drupal 7
+  - Best Practice
+  - Performance
+description: |
+  Create a symlink to your private files area.
+remediation: |
+  Disable the HTML Purifier module: `drush pm-uninstall htmlpurifier -y`.
+success: The HTML Purifier module is not currently enabled.
+failure: The HTML Purifier module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('htmlpurifier')
+    on_fail: omit
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: htmlpurifier

@@ -1,0 +1,21 @@
+title: Link Checker is not installed
+name: Drupal-7:acquiaLinkCheckerDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
+tags:
+  - Drupal 7
+  - Best Practice
+  - Performance
+description: |
+  The Link Checker module can sometime cause timeouts when cron is run.
+remediation: |
+  Disable the Link Checker module: `drush pm-uninstall linkchecker -y`.
+success: The Link Checker module is not currently enabled.
+failure: The Link Checker module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('linkchecker')
+    on_fail: omit
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: linkchecker

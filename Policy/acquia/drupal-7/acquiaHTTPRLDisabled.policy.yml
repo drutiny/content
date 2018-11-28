@@ -1,0 +1,22 @@
+title: HTTPRL is not installed
+name: Drupal-7:acquiaHTTPRLDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
+tags:
+  - Drupal 7
+  - Best Practice
+  - Performance
+description: |
+  May require some special configuration to use on Acquia Cloud, or 
+  it can generate errors. 
+remediation: |
+  Disable the HTTPRL module: `drush pm-uninstall httprl -y`.
+success: The HTTPRL module is not currently enabled.
+failure: The HTTPRL module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('httprl')
+    on_fail: omit
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: httprl

@@ -1,0 +1,25 @@
+title: Adaptive Image is not installed
+name: Drupal-7:acquiaAdaptiveImageDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
+tags:
+  - Drupal 7
+  - Best Practice
+  - Performance
+description: |
+  Exercise some care when using this module because it may have issues 
+  storing image derivatives when caching is turned on. When this module 
+  is in use, users who visit a page directly after a cache clear will set 
+  the image size for that page and that image size is used for all visitors, 
+  regardless of what their browser is.
+remediation: |
+  Disable the Adaptive Image module: `drush pm-uninstall adaptive_image -y`.
+success: The Adaptive Image module is not currently enabled.
+failure: The Adaptive Image module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('adaptive_image')
+    on_fail: omit
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: adaptive_image

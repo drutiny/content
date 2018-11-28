@@ -1,0 +1,23 @@
+title: DB Maintenance is not installed
+name: Drupal-8:acquiaDBMaintenanceDisabled
+class: \Drutiny\Plugin\Drupal8\Audit\ModuleDisabled
+tags:
+  - Drupal 8
+  - Best Practice
+  - Performance
+description: |
+  Using this module improperly can potentially cause slowdowns or outages. 
+  If you believe that your application has tables that need optimizing, 
+  open a ticket with Acquia Support.
+remediation: |
+  Disable the DB Maintenance module: `drush pm-uninstall db_maintenance -y`.
+success: The DB Maintenance module is not currently enabled.
+failure: The DB Maintenance module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('db_maintenance')
+    on_fail: omit
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: db_maintenance

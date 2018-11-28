@@ -1,0 +1,22 @@
+title: Contact Importer is not installed
+name: Drupal-7:acquiaContactImporterDisabled
+class: \Drutiny\Plugin\Drupal7\Audit\ModuleDisabled
+tags:
+  - Drupal 7
+  - Best Practice
+  - Performance
+description: |
+  Issue due to its reliance on Open Inviter. Create a symlink to your 
+  private files area.
+remediation: |
+  Disable the Contact Importer module: `drush pm-uninstall contact_importer -y`.
+success: The Contact Importer module is not currently enabled.
+failure: The Contact Importer module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('contact_importer')
+    on_fail: omit
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: contact_importer

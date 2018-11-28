@@ -1,0 +1,25 @@
+title: Dropzone JS is not installed
+name: Drupal-8:acquiaDropzoneJSDisabled
+class: \Drutiny\Plugin\Drupal8\Audit\ModuleDisabled
+tags:
+  - Drupal 8
+  - Best Practice
+  - Performance
+description: |
+  When uploading files with the dropzonejs module (included with Lightning) 
+  to an application with multiple web servers served by a single load 
+  balancer, the web server that processes the form submission may not be 
+  the web server that received the temporary file in the AJAX request. 
+  Upload files through the `/media/add` interface instead.
+remediation: |
+  Disable the Dropzone JS module: `drush pm-uninstall dropzonejs -y`.
+success: The Dropzone JS module is not currently enabled.
+failure: The Dropzone JS module is currently enabled.
+depends:
+  - expression: drupal_module_enabled('dropzonejs')
+    on_fail: omit
+parameters:
+  module:
+    type: string
+    description: The name of the module to ensure is not installed.
+    default: dropzonejs
