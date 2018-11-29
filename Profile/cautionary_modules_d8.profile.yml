@@ -1,0 +1,19 @@
+title: Acquia Cloud Cautionary Modules - D8
+policies:
+  Drupal-8:acquiaCASDisabled:
+  Drupal-8:acquiaDBMaintenanceDisabled:
+  Drupal-8:acquiaDevinciDisabled:
+  Drupal-8:acquiaDropzoneJSDisabled:
+  Drupal-8:acquiaFilefieldSourcesDisabled:
+  Drupal-8:honeypotTimeLimit:
+  Drupal-8:acquiaHTMLPurifierDisabled:
+  Drupal-8:acquiaLDAPDisabled:
+  Drupal-8:acquiaLinkCheckerDisabled:
+  Drupal-8:acquiaNodeViewCountDisabled:
+  Drupal-8:acquiaOptimizeDBDisabled:
+  Drupal-8:acquiaR4032LoginDisabled:
+  Drupal-8:acquiaRadioactivityDisabled:
+  Drupal-8:acquiaSearch404Disabled:
+  Drupal-8:acquiaTCPDFDisabled:
+  Drupal-8:acquiaWorkbenchModerationDisabled:
+  Drupal-8:acquiaWURFLDisabled:

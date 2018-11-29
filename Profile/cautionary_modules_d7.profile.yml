@@ -1,0 +1,24 @@
+title: Acquia Cloud Cautionary Modules - D7
+policies:
+  Drupal-7:acquiaAdaptiveImageDisabled:
+  Drupal-7:acquiaAuthcacheDisabled:
+  Drupal-7:acquiaBeanDisabled:
+  Drupal-7:acquiaCASDisabled:
+  Drupal-7:acquiaContactImporterDisabled:
+  Drupal-7:acquiaDBMaintenanceDisabled:
+  Drupal-7:acquiaElysiaCronDisabled:
+  Drupal-7:acquiaFilefieldSourcesDisabled:
+  Drupal-7:acquiaHTMLPurifierDisabled:
+  Drupal-7:acquiaHTTPRLDisabled:
+  Drupal-7:acquiaLDAPDisabled:
+  Drupal-7:acquiaLinkCheckerDisabled:
+  Drupal-7:acquiaNodeViewCountDisabled:
+  Drupal-7:acquiaOptimizeDBDisabled:
+  Drupal-7:acquiaPrintDisabled:
+  Drupal-7:acquiaR4032LoginDisabled:
+  Drupal-7:acquiaRadioactivityDisabled:
+  Drupal-7:acquiaSearch404Disabled:
+  Drupal-7:acquiaTCPDFDisabled:
+  Drupal-7:acquiaWorkbenchModerationDisabled:
+  Drupal-7:acquiaWURFLDisabled:
+  Drupal-7:acquiaWYSIWYGCKFinderDisabled:
