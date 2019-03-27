@@ -12,7 +12,7 @@ remediation: |
   codebase.
 success: No duplicate modules found.
 failure: |
-  Duplicate modules found
-  {{# modules}}
-  * {{name}}
-  {{/ modules}}
+  Duplicate modules found:
+  {{# duplicate_modules}}
+  * {{.}}
+  {{/ duplicate_modules}}
