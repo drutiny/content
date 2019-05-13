@@ -11,9 +11,10 @@ description: |
 remediation: |
   Review your theme directory and remove any uneeded source files or media and
   ensure media is optimized for web delivery.
-success: Drupal theme directory size is under acceptable parameters.
+success: |
+  The size of the theme directory `{{path}}` is less than {{max_size}} MB, currently **{{size}} MB**.
 failure: |
-  The {{path}} directory is {{size}}MB in size.
+  The size of the theme directory `{{path}}` is over {{max_size}} MB, currently **{{size}} MB**.
 parameters:
   max_size:
     default: 50
