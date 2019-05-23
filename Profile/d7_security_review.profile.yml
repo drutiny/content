@@ -1,0 +1,15 @@
+title: Drupal 7 Security Review
+policies:
+    Drupal-7:DevelDisabled:
+    Drupal-7:ErrorLevel:
+    Drupal-7:NoBackupAndMigrate:
+    Drupal-7:PhpModuleDisabled:
+    Drupal-7:SimpletestModuleDisabled:
+    Drupal-7:UntrustedRoles:
+    Drupal-7:UpdateModuleDisabled:
+    Drupal-7:User1LockDown:
+    Drupal-7:UserRegistrationDisabled:
+    Drupal-7:PSA-2016-003:
+    fs:SensitivePublicFiles:
+include:
+  - securityheaders
