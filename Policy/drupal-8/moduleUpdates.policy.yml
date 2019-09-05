@@ -1,5 +1,5 @@
 title: Module updates
-class: \Drutiny\Audit\Drupal\ModuleUpdateStatus
+class: \Drutiny\Plugin\Drupal8\Audit\ModuleUpdateStatus
 name: Drupal-8:moduleUpdates
 tags:
   - Drupal 8
