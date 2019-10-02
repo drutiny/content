@@ -7,7 +7,7 @@ remediation: |
   Turn production mode on in the Acquia Cloud UI.
 success: Production mode is enabled.
 failure: |
-  Produciton mode is not yet enabled, this means it is possible to overwrite
+  Production mode is not yet enabled, this means it is possible to overwrite
   the production database using the Acquia Cloud workflow UI.
 warning: |
   This environment audited is not the production environment.
